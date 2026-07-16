@@ -1,7 +1,7 @@
 export const SITE = {
   name: "Truvon Capital",
   url: "https://www.truvoncapital.com",
-  email: "info@truvoncapital.com",
+  email: "contact@truvoncapital.com",
   tagline: "Private markets. Trusted relationships. Disciplined execution.",
   description:
     "Truvon Capital is a global private markets platform designed to capitalize on today's multi-dimensional, rapidly evolving investment landscape.",

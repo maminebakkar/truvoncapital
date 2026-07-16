@@ -17,9 +17,13 @@ export default function Footer() {
       <div className="container-editorial relative z-10 py-20 text-center lg:py-24 lg:text-left">
         <div className="grid gap-14 lg:grid-cols-[1.5fr_1fr_1fr]">
           <div className="mx-auto flex max-w-sm flex-col items-center lg:mx-0 lg:items-start">
-            <Logo variant="light" height={34} />
-            <p className="mt-8 font-serif text-2xl font-medium leading-snug text-white">
-              {SITE.tagline}
+            <Logo variant="light" height={42} />
+            <p className="mt-8 font-serif text-2xl font-medium leading-relaxed text-white/90">
+              <span className="text-gold">Private</span> markets.
+              <br />
+              <span className="text-gold">Trusted</span> relationships.
+              <br />
+              <span className="text-gold">Disciplined</span> execution.
             </p>
           </div>
 
@@ -47,12 +51,7 @@ export default function Footer() {
             >
               {SITE.email}
             </a>
-            <a
-              href={SITE.url}
-              className="link-underline w-fit text-sm text-white/75 transition-colors hover:text-white"
-            >
-              www.truvoncapital.com
-            </a>
+
             <Link
               href="#main"
               className="link-underline mt-6 w-fit text-xs uppercase tracking-wide text-gold"

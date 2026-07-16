@@ -45,11 +45,10 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-          solid
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${solid
             ? "bg-offwhite/95 shadow-[0_1px_0_rgba(178,143,83,0.25),0_10px_30px_-18px_rgba(4,64,41,0.4)] backdrop-blur"
             : "bg-transparent"
-        }`}
+          }`}
       >
         <div className="container-editorial flex h-20 items-center justify-between lg:h-24">
           <Link
@@ -57,7 +56,7 @@ export default function Header() {
             aria-label="Truvon Capital — home"
             className="relative z-50 flex items-center py-2"
           >
-            <Logo variant={onDark ? "light" : "dark"} height={32} priority />
+            <Logo variant={onDark ? "light" : "dark"} height={42} priority />
           </Link>
 
           {/* Desktop nav */}
@@ -67,11 +66,10 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={isActive(item.href) ? "page" : undefined}
-                className={`link-underline py-2 font-sans text-sm tracking-wide transition-colors duration-200 ${
-                  onDark
+                className={`link-underline py-2 font-sans text-sm tracking-wide transition-colors duration-200 ${onDark
                     ? "text-white/85 hover:text-white"
                     : "text-charcoal hover:text-primary"
-                } ${isActive(item.href) ? "after:w-full" : ""}`}
+                  } ${isActive(item.href) ? "after:w-full" : ""}`}
               >
                 {item.label}
               </Link>
@@ -79,11 +77,10 @@ export default function Header() {
             <Link
               href={CONTACT_NAV.href}
               aria-current={isActive(CONTACT_NAV.href) ? "page" : undefined}
-              className={`rounded-sm border px-6 py-3 font-sans text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5 ${
-                onDark
+              className={`rounded-sm border px-6 py-3 font-sans text-sm tracking-wide transition-all duration-300 hover:-translate-y-0.5 ${onDark
                   ? "border-gold/70 text-white hover:border-gold hover:bg-gold hover:text-primary"
                   : "border-gold text-primary hover:bg-primary hover:border-primary hover:text-white"
-              }`}
+                }`}
             >
               {CONTACT_NAV.label}
             </Link>
@@ -100,19 +97,16 @@ export default function Header() {
             <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
             <span className="relative block h-[14px] w-7" aria-hidden="true">
               <span
-                className={`absolute left-0 block h-px w-7 transition-all duration-300 ${
-                  onDark ? "bg-white" : "bg-primary"
-                } ${open ? "top-1/2 rotate-45" : "top-0"}`}
+                className={`absolute left-0 block h-px w-7 transition-all duration-300 ${onDark ? "bg-white" : "bg-primary"
+                  } ${open ? "top-1/2 rotate-45" : "top-0"}`}
               />
               <span
-                className={`absolute left-0 top-1/2 block h-px transition-all duration-300 ${
-                  onDark ? "bg-white" : "bg-primary"
-                } ${open ? "w-7 -rotate-45" : "w-5"}`}
+                className={`absolute left-0 top-1/2 block h-px transition-all duration-300 ${onDark ? "bg-white" : "bg-primary"
+                  } ${open ? "w-7 -rotate-45" : "w-5"}`}
               />
               <span
-                className={`absolute bottom-0 left-0 block h-px w-7 transition-all duration-300 ${
-                  onDark ? "bg-white" : "bg-primary"
-                } ${open ? "opacity-0" : "opacity-100"}`}
+                className={`absolute bottom-0 left-0 block h-px w-7 transition-all duration-300 ${onDark ? "bg-white" : "bg-primary"
+                  } ${open ? "opacity-0" : "opacity-100"}`}
               />
             </span>
           </button>
@@ -123,9 +117,8 @@ export default function Header() {
       <div
         id="menu-overlay"
         aria-hidden={!open}
-        className={`fixed inset-0 z-40 flex flex-col bg-primary transition-[opacity,visibility] duration-500 lg:hidden ${
-          open ? "visible opacity-100" : "invisible opacity-0"
-        }`}
+        className={`fixed inset-0 z-40 flex flex-col bg-primary transition-[opacity,visibility] duration-500 lg:hidden ${open ? "visible opacity-100" : "invisible opacity-0"
+          }`}
       >
         <div
           aria-hidden="true"
@@ -145,15 +138,13 @@ export default function Header() {
               href={item.href}
               tabIndex={open ? 0 : -1}
               aria-current={isActive(item.href) ? "page" : undefined}
-              className={`group flex items-baseline justify-between border-b border-white/10 py-5 transition-all duration-500 ${
-                open ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-              }`}
+              className={`group flex items-baseline justify-between border-b border-white/10 py-5 transition-all duration-500 ${open ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+                }`}
               style={{ transitionDelay: open ? `${140 + i * 60}ms` : "0ms" }}
             >
               <span
-                className={`font-serif text-4xl font-medium transition-colors duration-200 sm:text-5xl ${
-                  isActive(item.href) ? "text-gold" : "text-white group-hover:text-gold"
-                }`}
+                className={`font-serif text-4xl font-medium transition-colors duration-200 sm:text-5xl ${isActive(item.href) ? "text-gold" : "text-white group-hover:text-gold"
+                  }`}
               >
                 {item.label}
               </span>
@@ -164,9 +155,8 @@ export default function Header() {
           ))}
         </nav>
         <div
-          className={`container-editorial relative z-10 flex items-center justify-between pb-10 transition-all delay-500 duration-500 ${
-            open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-          }`}
+          className={`container-editorial relative z-10 flex items-center justify-between pb-10 transition-all delay-500 duration-500 ${open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+            }`}
         >
           <a
             href={`mailto:${SITE.email}`}
