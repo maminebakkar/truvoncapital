@@ -93,7 +93,7 @@ export default function WhatWeDoPage() {
       <section className="border-t border-charcoal/10 bg-white py-16 lg:py-24">
         <div className="container-editorial">
           <Reveal>
-            <Eyebrow>Capabilities</Eyebrow>
+            <Eyebrow>Our capabilities</Eyebrow>
             <GoldRule draw className="mt-5" />
           </Reveal>
 
@@ -155,8 +155,8 @@ function ClosingBand() {
         <Reveal>
           <Eyebrow>Collaborate with Truvon</Eyebrow>
           <GoldRule draw className="mt-5" />
-          <h2 className="mt-7 max-w-xl font-serif text-h2 font-medium text-white">
-            Considering an opportunity, or seeking the right capital?
+          <h2 className="mt-7 max-w-3xl font-serif text-h2 font-medium text-white">
+            Considering an opportunity or seeking the right capital partner?
           </h2>
         </Reveal>
         <Reveal delay={120} className="shrink-0">

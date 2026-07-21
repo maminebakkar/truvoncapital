@@ -24,7 +24,15 @@ const teasers = [
   {
     n: "02",
     eyebrow: "Our approach",
-    title: "Selective. Aligned. Long-term.",
+    title: (
+      <>
+        Selective.
+        <br />
+        Aligned.
+        <br />
+        Long-term.
+      </>
+    ),
     body:
       "A disciplined approach to private market engagement, built on trust, clarity and enduring alignment.",
     href: "/our-approach",
@@ -39,9 +47,11 @@ export default function HomePage() {
         size="hero"
         eyebrow="Global Private Markets Platform"
         titleLines={[
-          <>Elevating trust.</>,
           <>
-            Unlocking <em className="font-medium italic">potential.</em>
+            Elevating <em className="font-medium italic">trust</em>.
+          </>,
+          <>
+            Unlocking <em className="font-medium italic">potential</em>.
           </>,
         ]}
         intro={
@@ -109,15 +119,6 @@ export default function HomePage() {
                   i === 0 ? "lg:pr-16" : "lg:pl-16"
                 }`}
               >
-                <span
-                  aria-hidden="true"
-                  className={`pointer-events-none absolute -top-8 font-serif text-[11rem] font-medium leading-none text-primary/[0.05] transition-colors duration-500 group-hover:text-gold/[0.16] ${
-                    i === 0 ? "right-0 lg:right-10" : "right-0"
-                  }`}
-                >
-                  {t.n}
-                </span>
-
                 <div className="relative">
                   <Eyebrow>{t.eyebrow}</Eyebrow>
                   <GoldRule

@@ -56,7 +56,7 @@ export default function Header() {
             aria-label="Truvon Capital — home"
             className="relative z-50 flex items-center py-2"
           >
-            <Logo variant={onDark ? "light" : "dark"} height={42} priority />
+            <Logo variant={onDark ? "light" : "dark"} height={50.4} priority />
           </Link>
 
           {/* Desktop nav */}
