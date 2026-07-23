@@ -163,9 +163,7 @@ export default function HomePage() {
         />
         <div className="container-editorial relative z-10 py-28 text-center lg:py-36">
           <Reveal className="mx-auto flex max-w-2xl flex-col items-center">
-            <PeakIcon className="h-4 w-4" />
-            <Eyebrow className="mt-5">Truvon Capital</Eyebrow>
-            <h2 className="mt-8 font-serif text-h2 font-medium text-white">
+            <h2 className="font-serif text-h2 font-medium text-white">
               Where capital, relationships and expertise converge.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-white/70">
