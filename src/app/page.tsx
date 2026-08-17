@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Masthead from "@/components/Masthead";
 import Reveal from "@/components/Reveal";
 import { ButtonLink, Eyebrow, GoldRule, PeakIcon, PeakMotif } from "@/components/ui";
@@ -68,14 +69,31 @@ export default function HomePage() {
       </Masthead>
 
       {/* Manifesto */}
-      <section className="bg-offwhite py-28 lg:py-36">
-        <div className="container-editorial">
+      <section className="relative overflow-hidden bg-offwhite py-28 lg:py-36">
+        {/* Background Skyline Image with Chevron */}
+        <div className="absolute left-0 top-0 bottom-0 z-0 w-[40%] md:w-[35%] lg:w-[40%] pointer-events-none">
+          <Image
+            src="/our-intent-bg.png"
+            alt=""
+            fill
+            sizes="(max-width: 768px) 40vw, (max-width: 1024px) 35vw, 40vw"
+            priority
+            className="object-cover object-left"
+            style={{
+              maskImage: "linear-gradient(to right, rgba(0, 0, 0, 1) 65%, rgba(0, 0, 0, 0) 100%)",
+              WebkitMaskImage: "linear-gradient(to right, rgba(0, 0, 0, 1) 65%, rgba(0, 0, 0, 0) 100%)",
+            }}
+          />
+        </div>
+
+        <div className="container-editorial relative z-10">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <Reveal className="lg:col-span-4">
-              <Eyebrow>Our intent</Eyebrow>
-              <GoldRule draw className="mt-5" />
-            </Reveal>
+            <div className="lg:col-span-4" />
             <div className="lg:col-span-8">
+              <Reveal className="mb-8">
+                <Eyebrow>Our intent</Eyebrow>
+                <GoldRule draw className="mt-5" />
+              </Reveal>
               <Reveal
                 as="p"
                 className="font-serif text-[1.7rem] font-medium leading-[1.3] text-primary sm:text-3xl lg:text-[2.6rem] lg:leading-[1.24]"
