@@ -41,11 +41,10 @@ export function PeakIcon({ className = "h-3 w-3" }: { className?: string }) {
 }
 
 /**
- * Large abstract peak motif for dark bands — nested outlines of the
- * logo's arrow, drawn in hairline gold at very low opacity.
+ * Large abstract peak motif for dark bands — outline of the
+ * official logo arrow, drawn in hairline gold at low opacity.
  */
 export function PeakMotif({ className = "" }: { className?: string }) {
-  const peaks = [1, 0.76, 0.52, 0.3];
   return (
     <svg
       viewBox="0 0 800 800"
@@ -54,18 +53,12 @@ export function PeakMotif({ className = "" }: { className?: string }) {
       className={`pointer-events-none absolute ${className}`}
       preserveAspectRatio="xMidYMid meet"
     >
-      <g stroke="#B28F53" strokeWidth="1">
-        {peaks.map((s, i) => (
-          <path
-            key={s}
-            opacity={0.9 - i * 0.18}
-            d={`M400 ${400 - 330 * s} L${400 + 350 * s} ${400 + 320 * s} M400 ${
-              400 - 330 * s
-            } L${400 - 350 * s} ${400 + 320 * s}`}
-          />
-        ))}
-        <line x1="40" y1="726" x2="760" y2="726" opacity="0.5" />
-      </g>
+      <path
+        d="M 400 10 L 750 720 L 400 395 L 50 720 Z"
+        stroke="#B28F53"
+        strokeWidth="1.5"
+        fill="none"
+      />
     </svg>
   );
 }
