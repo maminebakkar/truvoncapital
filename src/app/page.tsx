@@ -69,9 +69,20 @@ export default function HomePage() {
       </Masthead>
 
       {/* Manifesto */}
-      <section className="relative overflow-hidden bg-offwhite py-28 lg:py-36">
-        {/* Background Skyline Image with Chevron */}
-        <div className="absolute left-0 top-0 bottom-0 z-0 w-[40%] md:w-[35%] lg:w-[40%] pointer-events-none">
+      <section className="relative overflow-hidden bg-offwhite pb-28 pt-0 md:py-28 lg:py-36">
+        {/* Mobile visual (visible only on mobile) */}
+        <div className="relative h-[250px] w-full md:hidden">
+          <Image
+            src="/our-intent-mobile-bg.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover object-left"
+          />
+        </div>
+
+        {/* Background Skyline Image with Chevron (Desktop/Tablet only) */}
+        <div className="absolute bottom-0 left-0 top-0 z-0 w-[40%] pointer-events-none hidden md:block md:w-[35%] lg:w-[40%]">
           <Image
             src="/our-intent-bg.png"
             alt=""
@@ -86,7 +97,7 @@ export default function HomePage() {
           />
         </div>
 
-        <div className="container-editorial relative z-10">
+        <div className="container-editorial relative z-10 mt-12 md:mt-0">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4" />
             <div className="lg:col-span-8">
