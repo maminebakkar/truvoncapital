@@ -105,11 +105,7 @@ function Texture({ size }: { size: "hero" | "page" }) {
         }}
       />
       <PeakMotif
-        className={
-          size === "hero"
-            ? "-right-24 top-1/2 h-[150%] -translate-y-1/2 opacity-[0.09] lg:-right-8"
-            : "-right-32 -top-24 h-[190%] opacity-[0.07]"
-        }
+        className="-right-24 top-[-25vh] h-[150vh] w-[150vh] opacity-[0.09] lg:-right-8"
       />
     </>
   );
