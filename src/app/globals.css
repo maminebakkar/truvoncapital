@@ -168,6 +168,34 @@
     }
   }
 
+  /* ---- Target sector active-state transitions ------------------------- */
+  .sector-symbol-enter {
+    animation: sector-symbol-enter 650ms var(--ease-lux) both;
+  }
+  .sector-label-enter {
+    animation: sector-label-enter 550ms var(--ease-lux) both;
+  }
+  @keyframes sector-symbol-enter {
+    from {
+      opacity: 0;
+      transform: scale(0.92) rotate(-2deg);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+  }
+  @keyframes sector-label-enter {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal,
     .rise,
@@ -177,6 +205,10 @@
       opacity: 1;
       transform: none;
       transition: none;
+      animation: none;
+    }
+    .sector-symbol-enter,
+    .sector-label-enter {
       animation: none;
     }
     .scroll-cue::after {
