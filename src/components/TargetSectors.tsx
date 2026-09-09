@@ -28,43 +28,60 @@ export default function TargetSectors() {
 
   useEffect(() => {
     const mobileQuery = window.matchMedia("(max-width: 639px)");
-    let animationFrame = 0;
+    let observer: IntersectionObserver | null = null;
+    let resizeFrame = 0;
 
-    const updateActiveSector = () => {
-      animationFrame = 0;
+    const observeMobileSectors = () => {
+      observer?.disconnect();
+      observer = null;
 
       if (!mobileQuery.matches) return;
 
-      const focusLine =
-        stickyFocusRef.current?.getBoundingClientRect().bottom ?? 176;
-      let nextActive = 0;
+      const focusLine = 80 + (stickyFocusRef.current?.offsetHeight ?? 96);
+      const bottomInset = Math.max(0, window.innerHeight - focusLine - 1);
 
-      sectorButtonRefs.current.forEach((button, index) => {
-        if (button && button.getBoundingClientRect().top <= focusLine + 1) {
-          nextActive = index;
-        }
-      });
+      observer = new IntersectionObserver(
+        (entries) => {
+          const focusedEntry = entries.find((entry) => entry.isIntersecting);
+          if (!focusedEntry) return;
 
-      setActive((current) =>
-        current === nextActive ? current : nextActive,
+          const nextActive = Number(
+            (focusedEntry.target as HTMLElement).dataset.sectorIndex,
+          );
+
+          if (Number.isNaN(nextActive)) return;
+          setActive((current) =>
+            current === nextActive ? current : nextActive,
+          );
+        },
+        {
+          rootMargin: `-${focusLine}px 0px -${bottomInset}px 0px`,
+          threshold: 0,
+        },
       );
+
+      sectorButtonRefs.current.forEach((button) => {
+        if (button) observer?.observe(button);
+      });
     };
 
-    const requestUpdate = () => {
-      if (animationFrame) return;
-      animationFrame = window.requestAnimationFrame(updateActiveSector);
+    const requestObserverReset = () => {
+      if (resizeFrame) return;
+      resizeFrame = window.requestAnimationFrame(() => {
+        resizeFrame = 0;
+        observeMobileSectors();
+      });
     };
 
-    requestUpdate();
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
-    mobileQuery.addEventListener("change", requestUpdate);
+    observeMobileSectors();
+    window.addEventListener("resize", requestObserverReset);
+    mobileQuery.addEventListener("change", requestObserverReset);
 
     return () => {
-      window.removeEventListener("scroll", requestUpdate);
-      window.removeEventListener("resize", requestUpdate);
-      mobileQuery.removeEventListener("change", requestUpdate);
-      if (animationFrame) window.cancelAnimationFrame(animationFrame);
+      observer?.disconnect();
+      window.removeEventListener("resize", requestObserverReset);
+      mobileQuery.removeEventListener("change", requestObserverReset);
+      if (resizeFrame) window.cancelAnimationFrame(resizeFrame);
     };
   }, []);
 
@@ -108,13 +125,13 @@ export default function TargetSectors() {
 
               <div
                 key={sectors[active].name}
-                className="sector-symbol-enter my-auto flex items-center justify-center py-8 text-gold"
+                className="sector-symbol-enter my-auto flex items-center justify-center py-8 text-gold max-sm:[animation:none]"
                 aria-hidden="true"
               >
                 <ActiveIcon className="h-28 w-28 sm:h-36 sm:w-36 lg:h-44 lg:w-44" />
               </div>
 
-              <div key={`label-${sectors[active].name}`} className="sector-label-enter">
+              <div key={`label-${sectors[active].name}`} className="sector-label-enter max-sm:[animation:none]">
                 <span className="mb-5 block h-px w-12 bg-gold" aria-hidden="true" />
                 <p aria-live="polite" className="max-w-[13ch] font-serif text-3xl font-medium leading-tight text-white sm:text-4xl">
                   {sectors[active].name}
@@ -158,18 +175,19 @@ export default function TargetSectors() {
                     ref={(button) => {
                       sectorButtonRefs.current[index] = button;
                     }}
+                    data-sector-index={index}
                     type="button"
                     aria-pressed={selected}
                     onClick={() => setActive(index)}
                     onMouseEnter={() => setActive(index)}
                     onFocus={() => setActive(index)}
-                    className={`group relative flex min-h-[104px] w-full items-center gap-5 overflow-hidden px-6 py-6 text-left transition-colors duration-500 sm:min-h-[128px] sm:px-8 lg:min-h-[80px] lg:px-10 lg:py-5 ${
+                    className={`group relative flex min-h-[104px] w-full items-center gap-5 overflow-hidden px-6 py-6 text-left transition-colors duration-200 sm:min-h-[128px] sm:px-8 sm:duration-500 lg:min-h-[80px] lg:px-10 lg:py-5 ${
                       selected ? "bg-white" : "hover:bg-white/70"
                     }`}
                   >
                     <span
                       aria-hidden="true"
-                      className={`absolute bottom-0 left-0 h-px bg-gold transition-all duration-700 ease-out-quint ${
+                      className={`absolute bottom-0 left-0 h-px bg-gold transition-all duration-300 ease-out-quint sm:duration-700 ${
                         selected ? "w-full" : "w-0 group-hover:w-full"
                       }`}
                     />
@@ -178,7 +196,7 @@ export default function TargetSectors() {
                     </span>
                     <Icon
                       aria-hidden="true"
-                      className={`h-8 w-8 shrink-0 transition-all duration-500 ${
+                      className={`h-8 w-8 shrink-0 transition-all duration-200 sm:duration-500 ${
                         selected
                           ? "scale-105 text-gold"
                           : "text-primary/55 group-hover:text-gold"
