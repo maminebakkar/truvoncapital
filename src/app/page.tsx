@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Masthead from "@/components/Masthead";
 import Reveal from "@/components/Reveal";
+import TargetSectors from "@/components/TargetSectors";
 import { ButtonLink, Eyebrow, GoldRule, PeakIcon, PeakMotif } from "@/components/ui";
 
 export const metadata: Metadata = {
@@ -178,6 +179,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <TargetSectors />
 
       {/* Closing CTA */}
       <section className="relative overflow-hidden bg-primary">
