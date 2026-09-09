@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type SVGProps } from "react";
+import { useEffect, useRef, useState, type SVGProps } from "react";
 import Reveal from "./Reveal";
 import { GoldRule, PeakMotif } from "./ui";
 
@@ -22,7 +22,51 @@ const sectors: Sector[] = [
 
 export default function TargetSectors() {
   const [active, setActive] = useState(0);
+  const stickyFocusRef = useRef<HTMLDivElement>(null);
+  const sectorButtonRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const ActiveIcon = sectors[active].icon;
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 639px)");
+    let animationFrame = 0;
+
+    const updateActiveSector = () => {
+      animationFrame = 0;
+
+      if (!mobileQuery.matches) return;
+
+      const focusLine =
+        stickyFocusRef.current?.getBoundingClientRect().bottom ?? 176;
+      let nextActive = 0;
+
+      sectorButtonRefs.current.forEach((button, index) => {
+        if (button && button.getBoundingClientRect().top <= focusLine + 1) {
+          nextActive = index;
+        }
+      });
+
+      setActive((current) =>
+        current === nextActive ? current : nextActive,
+      );
+    };
+
+    const requestUpdate = () => {
+      if (animationFrame) return;
+      animationFrame = window.requestAnimationFrame(updateActiveSector);
+    };
+
+    requestUpdate();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    mobileQuery.addEventListener("change", requestUpdate);
+
+    return () => {
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      mobileQuery.removeEventListener("change", requestUpdate);
+      if (animationFrame) window.cancelAnimationFrame(animationFrame);
+    };
+  }, []);
 
   return (
     <section
@@ -56,7 +100,7 @@ export default function TargetSectors() {
 
             <div className="relative flex h-full min-h-[280px] flex-col justify-between p-8 sm:min-h-[360px] sm:p-11 lg:min-h-[640px] lg:p-14">
               <div className="flex items-start justify-between">
-                <span className="eyebrow text-white/50">Selected focus</span>
+                <span className="eyebrow text-white/50">Focus sector</span>
                 <span className="font-serif text-sm tracking-wide text-gold">
                   {String(active + 1).padStart(2, "0")} / {String(sectors.length).padStart(2, "0")}
                 </span>
@@ -80,14 +124,17 @@ export default function TargetSectors() {
           </Reveal>
 
           <div className="grid bg-offwhite sm:grid-cols-2 lg:col-span-7 lg:grid-cols-1">
-            <div className="sticky top-20 z-20 flex min-h-[96px] items-center gap-4 border-b border-gold/35 bg-primary px-6 py-4 text-white shadow-[0_14px_28px_-20px_rgba(4,64,41,0.75)] sm:hidden">
+            <div
+              ref={stickyFocusRef}
+              className="sticky top-20 z-20 flex min-h-[96px] items-center gap-4 border-b border-gold/35 bg-primary px-6 py-4 text-white shadow-[0_14px_28px_-20px_rgba(4,64,41,0.75)] sm:hidden"
+            >
               <ActiveIcon
                 aria-hidden="true"
                 className="h-12 w-12 shrink-0 text-gold"
               />
               <div className="min-w-0 flex-1">
                 <span className="eyebrow !text-[0.58rem] text-white/45">
-                  Selected sector
+                  Focus sector
                 </span>
                 <p className="mt-1 font-serif text-lg font-medium leading-tight text-white">
                   {sectors[active].name}
@@ -108,6 +155,9 @@ export default function TargetSectors() {
                   className="border-b border-charcoal/10 last:border-b-0 sm:[&:nth-child(odd)]:border-r lg:[&:nth-child(odd)]:border-r-0"
                 >
                   <button
+                    ref={(button) => {
+                      sectorButtonRefs.current[index] = button;
+                    }}
                     type="button"
                     aria-pressed={selected}
                     onClick={() => setActive(index)}
