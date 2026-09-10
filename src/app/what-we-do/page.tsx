@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import { Fragment } from "react";
 import Masthead from "@/components/Masthead";
 import Reveal from "@/components/Reveal";
 import { ButtonLink, Eyebrow, GoldRule } from "@/components/ui";
@@ -60,15 +62,15 @@ export default function WhatWeDoPage() {
 
       {/* Positioning */}
       <section className="bg-offwhite py-24 lg:py-32">
-        <div className="container-editorial grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="lg:col-span-4">
-            <Eyebrow>Our role</Eyebrow>
-            <GoldRule draw className="mt-5" />
-          </Reveal>
-          <div className="space-y-8 lg:col-span-8">
+        <div className="container-editorial grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <Reveal>
+              <Eyebrow>Our role</Eyebrow>
+              <GoldRule draw className="mt-5" />
+            </Reveal>
             <Reveal
               as="p"
-              className="max-w-2xl font-serif text-[1.7rem] font-medium leading-[1.3] text-primary sm:text-3xl sm:leading-[1.28]"
+              className="mt-10 max-w-xl font-serif text-[1.7rem] font-medium leading-[1.3] text-primary sm:text-3xl sm:leading-[1.28]"
             >
               We identify and assess high-potential private market opportunities,
               frame them clearly for our relevant capital partners, and leverage
@@ -78,7 +80,7 @@ export default function WhatWeDoPage() {
             <Reveal
               as="p"
               delay={120}
-              className="max-w-2xl font-sans text-lg leading-relaxed text-charcoal/75"
+              className="mt-8 max-w-xl font-sans text-lg leading-relaxed text-charcoal/75"
             >
               Our role is not to act as a general fundraiser or conventional
               investment bank. We are focused on building a trusted platform around
@@ -86,6 +88,27 @@ export default function WhatWeDoPage() {
               creation.
             </Reveal>
           </div>
+
+          <Reveal
+            as="figure"
+            delay={100}
+            className="relative overflow-hidden rounded-sm border border-charcoal/10 bg-white shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:col-span-7"
+          >
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-0 top-0 z-10 h-px bg-gold/70"
+            />
+            <div className="relative aspect-[3/2] lg:aspect-[6/5]">
+              <Image
+                src="/images/what-we-do-our-role.jpg"
+                alt="A quiet limestone colonnade surrounding a reflective courtyard"
+                fill
+                priority
+                sizes="(min-width: 1024px) 54vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -97,39 +120,68 @@ export default function WhatWeDoPage() {
             <GoldRule draw className="mt-5" />
           </Reveal>
 
-          <ul className="mt-6">
+          <ul className="mt-8 grid lg:grid-cols-12 lg:gap-x-14">
             {capabilities.map((c, i) => (
-              <Reveal
-                as="li"
-                key={c.n}
-                delay={i * 60}
-                className="group grid gap-6 border-b border-charcoal/10 py-14 last:border-b-0 lg:grid-cols-12 lg:gap-12 lg:py-16"
-              >
-                <div className="lg:col-span-2">
+              <Fragment key={c.n}>
+                <Reveal
+                  as="li"
+                  delay={i * 60}
+                  className={`group grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-5 border-b border-charcoal/10 py-12 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-x-7 lg:col-span-7 lg:col-start-6 lg:py-14 ${
+                    i === 0
+                      ? "lg:row-start-1"
+                      : i === 1
+                        ? "lg:row-start-2"
+                        : i === 2
+                          ? "lg:row-start-3"
+                          : "lg:row-start-4"
+                  }`}
+                >
                   <span
                     aria-hidden="true"
-                    className="font-serif text-6xl font-medium leading-none text-primary/[0.14] transition-colors duration-500 group-hover:text-gold/60 lg:text-7xl"
+                    className="row-span-2 font-serif text-5xl font-medium leading-none text-primary/[0.14] transition-colors duration-500 group-hover:text-gold/60 sm:text-6xl"
                   >
                     {c.n}
                   </span>
-                </div>
-                <div className="lg:col-span-4">
-                  <h2 className="max-w-[16ch] font-serif text-2xl font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1 lg:text-3xl">
-                    {c.title}
-                  </h2>
-                  <GoldRule className="mt-6 w-10 transition-all duration-500 group-hover:w-20" />
-                </div>
-                <div className="space-y-5 lg:col-span-6">
-                  {c.body.map((p, j) => (
-                    <p
-                      key={j}
-                      className="max-w-2xl font-sans text-lg leading-relaxed text-charcoal/75"
-                    >
-                      {p}
-                    </p>
-                  ))}
-                </div>
-              </Reveal>
+                  <div>
+                    <h2 className="max-w-[18ch] font-serif text-2xl font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1 lg:text-[1.7rem]">
+                      {c.title}
+                    </h2>
+                    <GoldRule className="mt-5 w-10 transition-all duration-500 group-hover:w-20" />
+                  </div>
+                  <div className="mt-6 space-y-5">
+                    {c.body.map((p, j) => (
+                      <p
+                        key={j}
+                        className="max-w-2xl font-sans text-lg leading-relaxed text-charcoal/75"
+                      >
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                </Reveal>
+
+                {i === 1 && (
+                  <Reveal
+                    as="li"
+                    delay={100}
+                    className="relative my-8 overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:col-span-4 lg:col-start-1 lg:row-span-2 lg:row-start-2 lg:my-14 lg:self-start"
+                  >
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-y-0 left-0 z-10 w-px bg-gold/70"
+                    />
+                    <div className="relative aspect-[4/5]">
+                      <Image
+                        src="/images/what-we-do-capabilities.jpg"
+                        alt="Limestone and bronze columns framing a distant cityscape"
+                        fill
+                        sizes="(min-width: 1024px) 31vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  </Reveal>
+                )}
+              </Fragment>
             ))}
           </ul>
         </div>
