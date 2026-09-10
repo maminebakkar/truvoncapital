@@ -60,9 +60,9 @@ export default function WhatWeDoPage() {
       />
 
       {/* Positioning */}
-      <section className="bg-offwhite py-24 lg:py-32">
-        <div className="container-editorial grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="flex flex-col justify-center lg:col-span-5 lg:pr-4">
+      <section className="bg-offwhite py-20 lg:py-24">
+        <div className="container-editorial grid items-stretch gap-12 lg:grid-cols-[minmax(0,4.5fr)_minmax(0,7.5fr)] lg:gap-12">
+          <div className="flex flex-col lg:justify-between">
             <Reveal>
               <Eyebrow>Our role</Eyebrow>
               <GoldRule draw className="mt-5" />
@@ -91,7 +91,7 @@ export default function WhatWeDoPage() {
           <Reveal
             as="figure"
             delay={100}
-            className="relative aspect-[3/2] overflow-hidden rounded-sm border border-charcoal/10 bg-white shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:col-span-7"
+            className="relative self-center overflow-hidden rounded-sm border border-charcoal/10 bg-white shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)]"
           >
             <div
               aria-hidden="true"
@@ -100,10 +100,11 @@ export default function WhatWeDoPage() {
             <Image
               src="/images/what-we-do-our-role.jpg"
               alt="A limestone terrace overlooking a global financial district"
-              fill
+              width={1536}
+              height={1024}
               priority
-              sizes="(min-width: 1024px) 54vw, 100vw"
-              className="object-cover"
+              sizes="(min-width: 1024px) 58vw, 100vw"
+              className="h-auto w-full"
             />
           </Reveal>
         </div>
@@ -117,13 +118,13 @@ export default function WhatWeDoPage() {
             <GoldRule draw className="mt-5" />
           </Reveal>
 
-          <ul className="mt-8 grid items-start lg:grid-cols-12 lg:gap-x-16">
+          <ul className="mt-8 grid items-start lg:grid-cols-12 lg:gap-x-12">
             {capabilities.map((c, i) => (
               <Reveal
                 as="li"
                 key={c.n}
                 delay={i * 60}
-                className={`group grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-5 border-b border-charcoal/10 py-10 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-x-7 lg:col-span-7 lg:col-start-1 lg:py-11 ${
+                className={`group grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-5 border-b border-charcoal/10 py-10 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-x-7 lg:col-span-7 lg:col-start-1 lg:grid-cols-[3.5rem_minmax(0,0.85fr)_minmax(0,1.55fr)] lg:gap-x-6 lg:py-8 ${
                   i === 0
                     ? "order-1 lg:order-none lg:row-start-1"
                     : i === 1
@@ -135,7 +136,7 @@ export default function WhatWeDoPage() {
               >
                 <span
                   aria-hidden="true"
-                  className="row-span-2 font-serif text-5xl font-medium leading-none text-primary/[0.14] transition-colors duration-500 group-hover:text-gold/60 sm:text-6xl"
+                  className="row-span-2 font-serif text-5xl font-medium leading-none text-primary/[0.14] transition-colors duration-500 group-hover:text-gold/60 sm:text-6xl lg:row-span-1"
                 >
                   {c.n}
                 </span>
@@ -145,7 +146,7 @@ export default function WhatWeDoPage() {
                   </h2>
                   <GoldRule className="mt-5 w-10 transition-all duration-500 group-hover:w-20" />
                 </div>
-                <div className="mt-6 space-y-5">
+                <div className="mt-6 space-y-5 lg:col-start-3 lg:row-start-1 lg:mt-0">
                   {c.body.map((p, j) => (
                     <p
                       key={j}
@@ -161,7 +162,7 @@ export default function WhatWeDoPage() {
             <Reveal
               as="li"
               delay={100}
-              className="relative order-3 my-10 aspect-[2/3] overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:order-none lg:col-span-5 lg:col-start-8 lg:row-span-4 lg:row-start-1 lg:my-0 lg:self-center"
+              className="relative order-3 mx-auto my-10 w-full max-w-sm overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:order-none lg:col-span-5 lg:col-start-8 lg:row-span-4 lg:row-start-1 lg:my-0 lg:max-w-none lg:self-start"
             >
               <div
                 aria-hidden="true"
@@ -170,9 +171,10 @@ export default function WhatWeDoPage() {
               <Image
                 src="/images/what-we-do-capabilities.jpg"
                 alt="A limestone and bronze corridor opening toward a financial district"
-                fill
+                width={809}
+                height={1942}
                 sizes="(min-width: 1024px) 38vw, 100vw"
-                className="object-cover"
+                className="h-auto w-full"
               />
             </Reveal>
           </ul>
