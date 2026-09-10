@@ -18,7 +18,7 @@ export default function CapabilitiesAccordion({
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="mt-10 grid items-start gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-14">
+    <div className="mt-10 grid items-start gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-stretch lg:gap-14">
       <Reveal>
         <div className="border-t border-charcoal/15">
           {capabilities.map((capability, index) => {
@@ -103,7 +103,7 @@ export default function CapabilitiesAccordion({
       <Reveal
         as="figure"
         delay={100}
-        className="relative overflow-hidden rounded-sm border border-charcoal/10 bg-offwhite shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)]"
+        className="relative overflow-hidden rounded-sm border border-charcoal/10 bg-offwhite shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:h-full lg:min-h-0 lg:self-stretch"
       >
         <div
           aria-hidden="true"
@@ -112,11 +112,13 @@ export default function CapabilitiesAccordion({
         <Image
           src="/images/what-we-do-capabilities-accordion.jpg"
           alt="A limestone and bronze colonnade overlooking a financial district"
-          width={1122}
-          height={1402}
+          fill
           sizes="(min-width: 1024px) 38vw, 100vw"
-          className="h-auto w-full"
+          className={`object-cover object-center transition-transform duration-500 ease-out motion-reduce:transform-none motion-reduce:transition-none lg:absolute ${
+            openIndex === null ? "scale-100" : "scale-[1.04]"
+          }`}
         />
+        <div className="aspect-[4/5] lg:hidden" aria-hidden="true" />
       </Reveal>
     </div>
   );
