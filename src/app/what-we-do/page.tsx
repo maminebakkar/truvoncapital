@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Masthead from "@/components/Masthead";
 import Reveal from "@/components/Reveal";
+import CapabilitiesAccordion from "@/components/CapabilitiesAccordion";
 import { ButtonLink, Eyebrow, GoldRule } from "@/components/ui";
 
 export const metadata: Metadata = {
@@ -44,49 +45,6 @@ const capabilities = [
     ],
   },
 ];
-
-type Capability = (typeof capabilities)[number];
-
-function CapabilityItem({
-  capability,
-  index,
-  className = "",
-}: {
-  capability: Capability;
-  index: number;
-  className?: string;
-}) {
-  return (
-    <Reveal
-      as="li"
-      delay={index * 60}
-      className={`group grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-5 border-b border-charcoal/10 py-10 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-x-7 lg:grid-cols-[3.5rem_minmax(0,0.85fr)_minmax(0,1.55fr)] lg:gap-x-6 lg:py-7 ${className}`}
-    >
-      <span
-        aria-hidden="true"
-        className="row-span-2 font-serif text-5xl font-medium leading-none text-primary/[0.14] transition-colors duration-500 group-hover:text-gold/60 sm:text-6xl lg:row-span-1"
-      >
-        {capability.n}
-      </span>
-      <div>
-        <h2 className="max-w-[18ch] font-serif text-2xl font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1">
-          {capability.title}
-        </h2>
-        <GoldRule className="mt-5 w-10 transition-all duration-500 group-hover:w-20" />
-      </div>
-      <div className="mt-6 space-y-5 lg:col-start-3 lg:row-start-1 lg:mt-0">
-        {capability.body.map((paragraph, paragraphIndex) => (
-          <p
-            key={paragraphIndex}
-            className="max-w-2xl font-sans text-lg leading-relaxed text-charcoal/75 lg:text-base"
-          >
-            {paragraph}
-          </p>
-        ))}
-      </div>
-    </Reveal>
-  );
-}
 
 export default function WhatWeDoPage() {
   return (
@@ -153,7 +111,7 @@ export default function WhatWeDoPage() {
         </div>
       </section>
 
-      {/* Capabilities — numbered editorial rows */}
+      {/* Capabilities — compact editorial accordion */}
       <section className="border-t border-charcoal/10 bg-white py-20 lg:py-28">
         <div className="container-editorial">
           <Reveal>
@@ -161,67 +119,7 @@ export default function WhatWeDoPage() {
             <GoldRule draw className="mt-5" />
           </Reveal>
 
-          <div className="mt-8 grid items-stretch gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-12">
-            <ul className="hidden h-full flex-col lg:flex">
-              {capabilities.map((capability, index) => (
-                <CapabilityItem
-                  key={capability.n}
-                  capability={capability}
-                  index={index}
-                  className="flex-1"
-                />
-              ))}
-            </ul>
-
-            <Reveal
-              as="figure"
-              delay={100}
-              className="relative hidden h-full self-stretch overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:block"
-            >
-              <div
-                aria-hidden="true"
-                className="absolute inset-y-0 left-0 z-10 w-px bg-gold/70"
-              />
-              <Image
-                src="/images/what-we-do-capabilities-tall.jpg"
-                alt="A limestone and bronze corridor opening toward a financial district"
-                fill
-                sizes="(min-width: 1024px) 38vw, 100vw"
-                className="object-cover object-center"
-              />
-            </Reveal>
-
-            <ul className="lg:hidden">
-              {capabilities.slice(0, 2).map((capability, index) => (
-                <CapabilityItem
-                  key={capability.n}
-                  capability={capability}
-                  index={index}
-                />
-              ))}
-              <Reveal
-                as="li"
-                delay={100}
-                className="relative mx-auto my-10 w-full max-w-[18rem] overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)]"
-              >
-                <Image
-                  src="/images/what-we-do-capabilities-tall.jpg"
-                  alt="A limestone and bronze corridor opening toward a financial district"
-                  width={724}
-                  height={2172}
-                  sizes="(min-width: 640px) 18rem, calc(100vw - 3rem)"
-                  className="h-auto w-full"
-                />
-              </Reveal>
-              {capabilities.slice(2).map((capability, index) => (
-                <CapabilityItem
-                  key={capability.n}
-                  capability={capability}
-                  index={index + 2}
-                />
-              ))}
-            </ul>
-          </div>
+          <CapabilitiesAccordion capabilities={capabilities} />
         </div>
       </section>
 
