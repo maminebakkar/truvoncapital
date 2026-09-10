@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Fragment } from "react";
 import Masthead from "@/components/Masthead";
 import Reveal from "@/components/Reveal";
 import { ButtonLink, Eyebrow, GoldRule } from "@/components/ui";
@@ -62,15 +61,17 @@ export default function WhatWeDoPage() {
 
       {/* Positioning */}
       <section className="bg-offwhite py-24 lg:py-32">
-        <div className="container-editorial grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
+        <div className="container-editorial grid items-stretch gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="flex flex-col justify-center lg:col-span-5 lg:pr-4">
             <Reveal>
-              <Eyebrow>Our role</Eyebrow>
-              <GoldRule draw className="mt-5" />
+              <h2 className="font-serif text-h2 font-medium text-primary">
+                Our role
+              </h2>
+              <GoldRule draw className="mt-6" />
             </Reveal>
             <Reveal
               as="p"
-              className="mt-10 max-w-xl font-serif text-[1.7rem] font-medium leading-[1.3] text-primary sm:text-3xl sm:leading-[1.28]"
+              className="mt-8 max-w-xl font-serif text-[1.7rem] font-medium leading-[1.3] text-primary sm:text-3xl sm:leading-[1.28]"
             >
               We identify and assess high-potential private market opportunities,
               frame them clearly for our relevant capital partners, and leverage
@@ -92,97 +93,92 @@ export default function WhatWeDoPage() {
           <Reveal
             as="figure"
             delay={100}
-            className="relative overflow-hidden rounded-sm border border-charcoal/10 bg-white shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:col-span-7"
+            className="relative min-h-[21rem] overflow-hidden rounded-sm border border-charcoal/10 bg-white shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] sm:min-h-[26rem] lg:col-span-7 lg:min-h-0"
           >
             <div
               aria-hidden="true"
               className="absolute inset-x-0 top-0 z-10 h-px bg-gold/70"
             />
-            <div className="relative aspect-[3/2] lg:aspect-[6/5]">
-              <Image
-                src="/images/what-we-do-our-role.jpg"
-                alt="A quiet limestone colonnade surrounding a reflective courtyard"
-                fill
-                priority
-                sizes="(min-width: 1024px) 54vw, 100vw"
-                className="object-cover"
-              />
-            </div>
+            <Image
+              src="/images/what-we-do-our-role.jpg"
+              alt="A limestone terrace overlooking a global financial district"
+              fill
+              priority
+              sizes="(min-width: 1024px) 54vw, 100vw"
+              className="object-cover"
+            />
           </Reveal>
         </div>
       </section>
 
       {/* Capabilities — numbered editorial rows */}
-      <section className="border-t border-charcoal/10 bg-white py-16 lg:py-24">
-        <div className="container-editorial">
-          <Reveal>
-            <Eyebrow>Our capabilities</Eyebrow>
-            <GoldRule draw className="mt-5" />
+      <section className="border-t border-charcoal/10 bg-white py-20 lg:py-28">
+        <div className="container-editorial grid lg:grid-cols-12 lg:gap-x-16">
+          <Reveal className="lg:col-span-7 lg:row-start-1">
+            <h2 className="font-serif text-h2 font-medium text-primary">
+              Our capabilities
+            </h2>
+            <GoldRule draw className="mt-6" />
           </Reveal>
 
-          <ul className="mt-8 grid lg:grid-cols-12 lg:gap-x-14">
+          <ul className="contents">
             {capabilities.map((c, i) => (
-              <Fragment key={c.n}>
-                <Reveal
-                  as="li"
-                  delay={i * 60}
-                  className={`group grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-5 border-b border-charcoal/10 py-12 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-x-7 lg:col-span-7 lg:col-start-6 lg:py-14 ${
-                    i === 0
-                      ? "lg:row-start-1"
-                      : i === 1
-                        ? "lg:row-start-2"
-                        : i === 2
-                          ? "lg:row-start-3"
-                          : "lg:row-start-4"
-                  }`}
+              <Reveal
+                as="li"
+                key={c.n}
+                delay={i * 60}
+                className={`group grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-5 border-b border-charcoal/10 py-10 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-x-7 lg:col-span-7 lg:col-start-1 lg:py-11 ${
+                  i === 0
+                    ? "order-1 mt-8 lg:order-none lg:row-start-2"
+                    : i === 1
+                      ? "order-2 lg:order-none lg:row-start-3"
+                      : i === 2
+                        ? "order-4 lg:order-none lg:row-start-4"
+                        : "order-5 lg:order-none lg:row-start-5"
+                }`}
+              >
+                <span
+                  aria-hidden="true"
+                  className="row-span-2 font-serif text-5xl font-medium leading-none text-primary/[0.14] transition-colors duration-500 group-hover:text-gold/60 sm:text-6xl"
                 >
-                  <span
-                    aria-hidden="true"
-                    className="row-span-2 font-serif text-5xl font-medium leading-none text-primary/[0.14] transition-colors duration-500 group-hover:text-gold/60 sm:text-6xl"
-                  >
-                    {c.n}
-                  </span>
-                  <div>
-                    <h2 className="max-w-[18ch] font-serif text-2xl font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1 lg:text-[1.7rem]">
-                      {c.title}
-                    </h2>
-                    <GoldRule className="mt-5 w-10 transition-all duration-500 group-hover:w-20" />
-                  </div>
-                  <div className="mt-6 space-y-5">
-                    {c.body.map((p, j) => (
-                      <p
-                        key={j}
-                        className="max-w-2xl font-sans text-lg leading-relaxed text-charcoal/75"
-                      >
-                        {p}
-                      </p>
-                    ))}
-                  </div>
-                </Reveal>
-
-                {i === 1 && (
-                  <Reveal
-                    as="li"
-                    delay={100}
-                    className="relative my-8 overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:col-span-4 lg:col-start-1 lg:row-span-2 lg:row-start-2 lg:my-14 lg:self-start"
-                  >
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-y-0 left-0 z-10 w-px bg-gold/70"
-                    />
-                    <div className="relative aspect-[4/5]">
-                      <Image
-                        src="/images/what-we-do-capabilities.jpg"
-                        alt="Limestone and bronze columns framing a distant cityscape"
-                        fill
-                        sizes="(min-width: 1024px) 31vw, 100vw"
-                        className="object-cover"
-                      />
-                    </div>
-                  </Reveal>
-                )}
-              </Fragment>
+                  {c.n}
+                </span>
+                <div>
+                  <h3 className="max-w-[18ch] font-serif text-2xl font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1 lg:text-[1.7rem]">
+                    {c.title}
+                  </h3>
+                  <GoldRule className="mt-5 w-10 transition-all duration-500 group-hover:w-20" />
+                </div>
+                <div className="mt-6 space-y-5">
+                  {c.body.map((p, j) => (
+                    <p
+                      key={j}
+                      className="max-w-2xl font-sans text-lg leading-relaxed text-charcoal/75"
+                    >
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              </Reveal>
             ))}
+
+            <Reveal
+              as="li"
+              delay={100}
+              className="relative order-3 my-10 aspect-[4/5] overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:order-none lg:col-span-5 lg:col-start-8 lg:row-span-5 lg:row-start-1 lg:my-0 lg:aspect-auto lg:min-h-[46rem]"
+            >
+              <div
+                aria-hidden="true"
+                className="absolute inset-y-0 left-0 z-10 w-px bg-gold/70"
+              />
+              <Image
+                src="/images/what-we-do-capabilities.jpg"
+                alt="A limestone and bronze corridor opening toward a financial district"
+                fill
+                sizes="(min-width: 1024px) 38vw, 100vw"
+                className="object-cover"
+              />
+            </Reveal>
           </ul>
         </div>
       </section>
@@ -195,12 +191,19 @@ export default function WhatWeDoPage() {
 function ClosingBand() {
   return (
     <section className="relative overflow-hidden bg-primary">
+      <Image
+        src="/images/what-we-do-collaborate.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover object-center"
+      />
       <div
         aria-hidden="true"
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(120% 90% at 84% 0%, rgba(178,143,83,0.12) 0%, rgba(178,143,83,0) 55%), linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.3) 100%)",
+            "linear-gradient(90deg, rgba(3,35,24,0.95) 0%, rgba(3,35,24,0.88) 38%, rgba(3,35,24,0.48) 72%, rgba(3,35,24,0.62) 100%), linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.38) 100%)",
         }}
       />
       <div className="container-editorial relative z-10 flex flex-col items-start gap-10 py-24 lg:flex-row lg:items-center lg:justify-between lg:py-28">
