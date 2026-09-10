@@ -45,6 +45,49 @@ const capabilities = [
   },
 ];
 
+type Capability = (typeof capabilities)[number];
+
+function CapabilityItem({
+  capability,
+  index,
+  className = "",
+}: {
+  capability: Capability;
+  index: number;
+  className?: string;
+}) {
+  return (
+    <Reveal
+      as="li"
+      delay={index * 60}
+      className={`group grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-5 border-b border-charcoal/10 py-10 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-x-7 lg:grid-cols-[3.5rem_minmax(0,0.85fr)_minmax(0,1.55fr)] lg:gap-x-6 lg:py-7 ${className}`}
+    >
+      <span
+        aria-hidden="true"
+        className="row-span-2 font-serif text-5xl font-medium leading-none text-primary/[0.14] transition-colors duration-500 group-hover:text-gold/60 sm:text-6xl lg:row-span-1"
+      >
+        {capability.n}
+      </span>
+      <div>
+        <h2 className="max-w-[18ch] font-serif text-2xl font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1">
+          {capability.title}
+        </h2>
+        <GoldRule className="mt-5 w-10 transition-all duration-500 group-hover:w-20" />
+      </div>
+      <div className="mt-6 space-y-5 lg:col-start-3 lg:row-start-1 lg:mt-0">
+        {capability.body.map((paragraph, paragraphIndex) => (
+          <p
+            key={paragraphIndex}
+            className="max-w-2xl font-sans text-lg leading-relaxed text-charcoal/75 lg:text-base"
+          >
+            {paragraph}
+          </p>
+        ))}
+      </div>
+    </Reveal>
+  );
+}
+
 export default function WhatWeDoPage() {
   return (
     <>
@@ -118,51 +161,22 @@ export default function WhatWeDoPage() {
             <GoldRule draw className="mt-5" />
           </Reveal>
 
-          <ul className="mt-8 grid items-start lg:grid-cols-12 lg:gap-x-12">
-            {capabilities.map((c, i) => (
-              <Reveal
-                as="li"
-                key={c.n}
-                delay={i * 60}
-                className={`group grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-5 border-b border-charcoal/10 py-10 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-x-7 lg:col-span-7 lg:col-start-1 lg:grid-cols-[3.5rem_minmax(0,0.85fr)_minmax(0,1.55fr)] lg:gap-x-6 lg:py-8 ${
-                  i === 0
-                    ? "order-1 lg:order-none lg:row-start-1"
-                    : i === 1
-                      ? "order-2 lg:order-none lg:row-start-2"
-                      : i === 2
-                        ? "order-4 lg:order-none lg:row-start-3"
-                        : "order-5 lg:order-none lg:row-start-4"
-                }`}
-              >
-                <span
-                  aria-hidden="true"
-                  className="row-span-2 font-serif text-5xl font-medium leading-none text-primary/[0.14] transition-colors duration-500 group-hover:text-gold/60 sm:text-6xl lg:row-span-1"
-                >
-                  {c.n}
-                </span>
-                <div>
-                  <h2 className="max-w-[18ch] font-serif text-2xl font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1 lg:text-[1.7rem]">
-                    {c.title}
-                  </h2>
-                  <GoldRule className="mt-5 w-10 transition-all duration-500 group-hover:w-20" />
-                </div>
-                <div className="mt-6 space-y-5 lg:col-start-3 lg:row-start-1 lg:mt-0">
-                  {c.body.map((p, j) => (
-                    <p
-                      key={j}
-                      className="max-w-2xl font-sans text-lg leading-relaxed text-charcoal/75"
-                    >
-                      {p}
-                    </p>
-                  ))}
-                </div>
-              </Reveal>
-            ))}
+          <div className="mt-8 grid items-stretch gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-12">
+            <ul className="hidden h-full flex-col lg:flex">
+              {capabilities.map((capability, index) => (
+                <CapabilityItem
+                  key={capability.n}
+                  capability={capability}
+                  index={index}
+                  className="flex-1"
+                />
+              ))}
+            </ul>
 
             <Reveal
-              as="li"
+              as="figure"
               delay={100}
-              className="relative order-3 mx-auto my-10 w-full max-w-sm overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:order-none lg:col-span-5 lg:col-start-8 lg:row-span-4 lg:row-start-1 lg:my-0 lg:max-w-none lg:self-start"
+              className="relative hidden self-start overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:block"
             >
               <div
                 aria-hidden="true"
@@ -171,13 +185,44 @@ export default function WhatWeDoPage() {
               <Image
                 src="/images/what-we-do-capabilities.jpg"
                 alt="A limestone and bronze corridor opening toward a financial district"
-                width={809}
-                height={1942}
+                width={724}
+                height={2172}
                 sizes="(min-width: 1024px) 38vw, 100vw"
                 className="h-auto w-full"
               />
             </Reveal>
-          </ul>
+
+            <ul className="lg:hidden">
+              {capabilities.slice(0, 2).map((capability, index) => (
+                <CapabilityItem
+                  key={capability.n}
+                  capability={capability}
+                  index={index}
+                />
+              ))}
+              <Reveal
+                as="li"
+                delay={100}
+                className="relative mx-auto my-10 w-full max-w-[18rem] overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)]"
+              >
+                <Image
+                  src="/images/what-we-do-capabilities.jpg"
+                  alt="A limestone and bronze corridor opening toward a financial district"
+                  width={724}
+                  height={2172}
+                  sizes="(min-width: 640px) 18rem, calc(100vw - 3rem)"
+                  className="h-auto w-full"
+                />
+              </Reveal>
+              {capabilities.slice(2).map((capability, index) => (
+                <CapabilityItem
+                  key={capability.n}
+                  capability={capability}
+                  index={index + 2}
+                />
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
