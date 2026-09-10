@@ -176,19 +176,18 @@ export default function WhatWeDoPage() {
             <Reveal
               as="figure"
               delay={100}
-              className="relative hidden self-start overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:block"
+              className="relative hidden h-full self-stretch overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:block"
             >
               <div
                 aria-hidden="true"
                 className="absolute inset-y-0 left-0 z-10 w-px bg-gold/70"
               />
               <Image
-                src="/images/what-we-do-capabilities.jpg"
+                src="/images/what-we-do-capabilities-tall.jpg"
                 alt="A limestone and bronze corridor opening toward a financial district"
-                width={724}
-                height={2172}
+                fill
                 sizes="(min-width: 1024px) 38vw, 100vw"
-                className="h-auto w-full"
+                className="object-cover object-center"
               />
             </Reveal>
 
@@ -206,7 +205,7 @@ export default function WhatWeDoPage() {
                 className="relative mx-auto my-10 w-full max-w-[18rem] overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)]"
               >
                 <Image
-                  src="/images/what-we-do-capabilities.jpg"
+                  src="/images/what-we-do-capabilities-tall.jpg"
                   alt="A limestone and bronze corridor opening toward a financial district"
                   width={724}
                   height={2172}
