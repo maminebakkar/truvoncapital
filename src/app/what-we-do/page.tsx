@@ -61,17 +61,15 @@ export default function WhatWeDoPage() {
 
       {/* Positioning */}
       <section className="bg-offwhite py-24 lg:py-32">
-        <div className="container-editorial grid items-stretch gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="container-editorial grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="flex flex-col justify-center lg:col-span-5 lg:pr-4">
             <Reveal>
-              <h2 className="font-serif text-h2 font-medium text-primary">
-                Our role
-              </h2>
-              <GoldRule draw className="mt-6" />
+              <Eyebrow>Our role</Eyebrow>
+              <GoldRule draw className="mt-5" />
             </Reveal>
             <Reveal
               as="p"
-              className="mt-8 max-w-xl font-serif text-[1.7rem] font-medium leading-[1.3] text-primary sm:text-3xl sm:leading-[1.28]"
+              className="mt-10 max-w-xl font-serif text-[1.7rem] font-medium leading-[1.3] text-primary sm:text-3xl sm:leading-[1.28]"
             >
               We identify and assess high-potential private market opportunities,
               frame them clearly for our relevant capital partners, and leverage
@@ -93,7 +91,7 @@ export default function WhatWeDoPage() {
           <Reveal
             as="figure"
             delay={100}
-            className="relative min-h-[21rem] overflow-hidden rounded-sm border border-charcoal/10 bg-white shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] sm:min-h-[26rem] lg:col-span-7 lg:min-h-0"
+            className="relative aspect-[3/2] overflow-hidden rounded-sm border border-charcoal/10 bg-white shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:col-span-7"
           >
             <div
               aria-hidden="true"
@@ -113,15 +111,13 @@ export default function WhatWeDoPage() {
 
       {/* Capabilities — numbered editorial rows */}
       <section className="border-t border-charcoal/10 bg-white py-20 lg:py-28">
-        <div className="container-editorial grid lg:grid-cols-12 lg:gap-x-16">
-          <Reveal className="lg:col-span-7 lg:row-start-1">
-            <h2 className="font-serif text-h2 font-medium text-primary">
-              Our capabilities
-            </h2>
-            <GoldRule draw className="mt-6" />
+        <div className="container-editorial">
+          <Reveal>
+            <Eyebrow>Our capabilities</Eyebrow>
+            <GoldRule draw className="mt-5" />
           </Reveal>
 
-          <ul className="contents">
+          <ul className="mt-8 grid items-start lg:grid-cols-12 lg:gap-x-16">
             {capabilities.map((c, i) => (
               <Reveal
                 as="li"
@@ -129,12 +125,12 @@ export default function WhatWeDoPage() {
                 delay={i * 60}
                 className={`group grid grid-cols-[3.5rem_minmax(0,1fr)] gap-x-5 border-b border-charcoal/10 py-10 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-x-7 lg:col-span-7 lg:col-start-1 lg:py-11 ${
                   i === 0
-                    ? "order-1 mt-8 lg:order-none lg:row-start-2"
+                    ? "order-1 lg:order-none lg:row-start-1"
                     : i === 1
-                      ? "order-2 lg:order-none lg:row-start-3"
+                      ? "order-2 lg:order-none lg:row-start-2"
                       : i === 2
-                        ? "order-4 lg:order-none lg:row-start-4"
-                        : "order-5 lg:order-none lg:row-start-5"
+                        ? "order-4 lg:order-none lg:row-start-3"
+                        : "order-5 lg:order-none lg:row-start-4"
                 }`}
               >
                 <span
@@ -144,9 +140,9 @@ export default function WhatWeDoPage() {
                   {c.n}
                 </span>
                 <div>
-                  <h3 className="max-w-[18ch] font-serif text-2xl font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1 lg:text-[1.7rem]">
+                  <h2 className="max-w-[18ch] font-serif text-2xl font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1 lg:text-[1.7rem]">
                     {c.title}
-                  </h3>
+                  </h2>
                   <GoldRule className="mt-5 w-10 transition-all duration-500 group-hover:w-20" />
                 </div>
                 <div className="mt-6 space-y-5">
@@ -165,7 +161,7 @@ export default function WhatWeDoPage() {
             <Reveal
               as="li"
               delay={100}
-              className="relative order-3 my-10 aspect-[4/5] overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:order-none lg:col-span-5 lg:col-start-8 lg:row-span-5 lg:row-start-1 lg:my-0 lg:aspect-auto lg:min-h-[46rem]"
+              className="relative order-3 my-10 aspect-[2/3] overflow-hidden rounded-sm border border-charcoal/10 shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:order-none lg:col-span-5 lg:col-start-8 lg:row-span-4 lg:row-start-1 lg:my-0 lg:self-center"
             >
               <div
                 aria-hidden="true"
