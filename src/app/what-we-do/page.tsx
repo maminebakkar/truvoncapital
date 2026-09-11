@@ -62,15 +62,15 @@ export default function WhatWeDoPage() {
 
       {/* Positioning */}
       <section className="bg-offwhite py-20 lg:py-24">
-        <div className="container-editorial grid items-stretch gap-12 lg:grid-cols-[minmax(0,4.5fr)_minmax(0,7.5fr)] lg:gap-12">
-          <div className="flex flex-col lg:justify-between">
+        <div className="container-editorial grid items-center gap-12 lg:grid-cols-[minmax(0,5.75fr)_minmax(0,6.25fr)] lg:gap-14">
+          <div>
             <Reveal>
               <Eyebrow>Our role</Eyebrow>
               <GoldRule draw className="mt-5" />
             </Reveal>
             <Reveal
               as="p"
-              className="mt-10 max-w-xl font-serif text-[1.7rem] font-medium leading-[1.3] text-primary sm:text-3xl sm:leading-[1.28]"
+              className="mt-8 w-full font-serif text-[1.65rem] font-medium leading-[1.3] text-primary"
             >
               We identify and assess high-potential private market opportunities,
               frame them clearly for our relevant capital partners, and leverage
@@ -80,7 +80,7 @@ export default function WhatWeDoPage() {
             <Reveal
               as="p"
               delay={120}
-              className="mt-8 max-w-xl font-sans text-lg leading-relaxed text-charcoal/75"
+              className="mt-6 w-full font-sans text-lg leading-relaxed text-charcoal/75"
             >
               Our role is not to act as a general fundraiser or conventional
               investment bank. We are focused on building a trusted platform around
