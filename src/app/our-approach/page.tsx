@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Masthead from "@/components/Masthead";
 import Reveal from "@/components/Reveal";
 import { ButtonLink, Eyebrow, GoldRule } from "@/components/ui";
@@ -59,52 +58,33 @@ export default function OurApproachPage() {
             <GoldRule draw className="mt-5" />
           </Reveal>
 
-          <div className="mt-12 grid items-stretch gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-14">
-            <ol className="border-t border-charcoal/15">
-              {principles.map((p, i) => (
-                <Reveal
-                  as="li"
-                  key={p.n}
-                  delay={i * 60}
-                  className="group grid grid-cols-[3.25rem_minmax(0,1fr)] gap-4 border-b border-charcoal/15 py-7 sm:grid-cols-[4.25rem_minmax(0,1fr)] sm:gap-6 sm:py-8"
+          <ol className="mt-12 border-y border-charcoal/15">
+            {principles.map((p, i) => (
+              <Reveal
+                as="li"
+                key={p.n}
+                delay={i * 60}
+                className="group relative grid grid-cols-[3.25rem_minmax(0,1fr)] gap-x-4 border-b border-charcoal/15 py-8 last:border-b-0 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-x-6 lg:grid-cols-[5rem_minmax(0,0.85fr)_minmax(0,1.35fr)] lg:items-center lg:gap-x-10 lg:py-11"
+              >
+                <span
+                  aria-hidden="true"
+                  className="font-sans text-xs font-medium tracking-[0.25em] text-gold transition-colors duration-500 group-hover:text-primary lg:self-start lg:pt-2"
                 >
-                  <span
-                    aria-hidden="true"
-                    className="pt-1 font-serif text-3xl font-medium leading-none text-primary/20 transition-colors duration-500 group-hover:text-gold/75 sm:text-4xl"
-                  >
-                    {p.n}
-                  </span>
-                  <div>
-                    <h2 className="font-serif text-2xl font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1 sm:text-[1.7rem]">
-                      {p.title}
-                    </h2>
-                    <GoldRule className="mt-4 w-8 transition-all duration-500 group-hover:w-14" />
-                    <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-charcoal/75 sm:text-lg">
-                      {p.body}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </ol>
-
-            <Reveal
-              as="figure"
-              delay={100}
-              className="relative min-h-[26rem] overflow-hidden rounded-sm border border-charcoal/10 bg-white shadow-[0_28px_70px_-48px_rgba(4,64,41,0.4)] lg:h-full lg:min-h-0"
-            >
-              <div
-                aria-hidden="true"
-                className="absolute inset-y-0 left-0 z-10 w-px bg-gold/70"
-              />
-              <Image
-                src="/images/our-approach-principles.jpg"
-                alt="A limestone colonnade and reflecting pool at a contemporary institution"
-                fill
-                sizes="(min-width: 1024px) 38vw, 100vw"
-                className="object-cover object-center"
-              />
-            </Reveal>
-          </div>
+                  {p.n}
+                </span>
+                <h2 className="font-serif text-2xl font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1 sm:text-[1.7rem] lg:text-3xl">
+                  {p.title}
+                </h2>
+                <p className="col-start-2 mt-4 max-w-2xl font-sans text-base leading-relaxed text-charcoal/75 sm:text-lg lg:col-start-3 lg:mt-0">
+                  {p.body}
+                </p>
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-y-0 left-0 w-px origin-center scale-y-0 bg-gold transition-transform duration-500 group-hover:scale-y-100"
+                />
+              </Reveal>
+            ))}
+          </ol>
         </div>
       </section>
 
