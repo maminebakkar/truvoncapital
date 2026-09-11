@@ -58,30 +58,41 @@ export default function OurApproachPage() {
             <GoldRule draw className="mt-5" />
           </Reveal>
 
-          <ol className="mt-12 border-y border-charcoal/15">
+          <ol className="relative mt-12 border-y border-charcoal/15 lg:grid lg:grid-cols-2">
+            <span
+              aria-hidden="true"
+              className="absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-charcoal/15 lg:block"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute left-0 right-0 top-1/2 hidden h-px -translate-y-1/2 bg-charcoal/15 lg:block"
+            />
+            <span
+              aria-hidden="true"
+              className="absolute left-1/2 top-1/2 z-10 hidden h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-gold bg-offwhite lg:block"
+            />
             {principles.map((p, i) => (
               <Reveal
                 as="li"
                 key={p.n}
                 delay={i * 60}
-                className="group relative grid grid-cols-[3.25rem_minmax(0,1fr)] gap-x-4 border-b border-charcoal/15 py-8 last:border-b-0 sm:grid-cols-[4.5rem_minmax(0,1fr)] sm:gap-x-6 lg:grid-cols-[5rem_minmax(0,0.85fr)_minmax(0,1.35fr)] lg:items-center lg:gap-x-10 lg:py-11"
+                className={`group relative border-b border-charcoal/15 py-10 pl-10 last:border-b-0 sm:py-12 sm:pl-14 lg:flex lg:min-h-[18rem] lg:flex-col lg:justify-center lg:border-b-0 lg:px-14 lg:py-14 ${
+                  i < 2 ? "lg:border-b lg:border-charcoal/15" : ""
+                } ${i % 2 === 0 ? "lg:pr-16 xl:pr-20" : "lg:pl-16 xl:pl-20"}`}
               >
                 <span
                   aria-hidden="true"
-                  className="font-sans text-xs font-medium tracking-[0.25em] text-gold transition-colors duration-500 group-hover:text-primary lg:self-start lg:pt-2"
+                  className="absolute left-0 top-12 font-sans text-[0.65rem] font-medium tracking-[0.25em] text-gold transition-colors duration-500 group-hover:text-primary sm:top-14 lg:static lg:mb-7"
                 >
                   {p.n}
                 </span>
-                <h2 className="font-serif text-2xl font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1 sm:text-[1.7rem] lg:text-3xl">
+                <h2 className="font-serif text-[1.7rem] font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1 sm:text-3xl lg:text-[2rem]">
                   {p.title}
                 </h2>
-                <p className="col-start-2 mt-4 max-w-2xl font-sans text-base leading-relaxed text-charcoal/75 sm:text-lg lg:col-start-3 lg:mt-0">
+                <GoldRule className="mt-5 w-8 transition-all duration-500 group-hover:w-14" />
+                <p className="mt-5 max-w-xl font-sans text-base leading-relaxed text-charcoal/75 sm:text-lg">
                   {p.body}
                 </p>
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-y-0 left-0 w-px origin-center scale-y-0 bg-gold transition-transform duration-500 group-hover:scale-y-100"
-                />
               </Reveal>
             ))}
           </ol>
