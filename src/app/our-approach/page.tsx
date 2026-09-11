@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Masthead from "@/components/Masthead";
 import Reveal from "@/components/Reveal";
-import { ButtonLink, Eyebrow, GoldRule, PeakIcon } from "@/components/ui";
+import { ButtonLink, Eyebrow, GoldRule } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Our approach",
@@ -58,30 +59,51 @@ export default function OurApproachPage() {
             <GoldRule draw className="mt-5" />
           </Reveal>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:gap-8">
-            {principles.map((p, i) => (
-              <Reveal
-                key={p.n}
-                delay={(i % 2) * 100 + Math.floor(i / 2) * 60}
-                className="group relative flex flex-col overflow-hidden rounded-sm border border-charcoal/10 bg-white p-10 transition-all duration-500 hover:-translate-y-1.5 hover:border-gold/50 hover:shadow-[0_30px_60px_-40px_rgba(4,64,41,0.35)] lg:p-14"
-              >
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -right-3 -top-9 font-serif text-[9rem] font-medium leading-none text-primary/[0.05] transition-colors duration-500 group-hover:text-gold/[0.15]"
+          <div className="mt-12 grid items-stretch gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-14">
+            <ol className="border-t border-charcoal/15">
+              {principles.map((p, i) => (
+                <Reveal
+                  as="li"
+                  key={p.n}
+                  delay={i * 60}
+                  className="group grid grid-cols-[3.25rem_minmax(0,1fr)] gap-4 border-b border-charcoal/15 py-7 sm:grid-cols-[4.25rem_minmax(0,1fr)] sm:gap-6 sm:py-8"
                 >
-                  {p.n}
-                </span>
+                  <span
+                    aria-hidden="true"
+                    className="pt-1 font-serif text-3xl font-medium leading-none text-primary/20 transition-colors duration-500 group-hover:text-gold/75 sm:text-4xl"
+                  >
+                    {p.n}
+                  </span>
+                  <div>
+                    <h2 className="font-serif text-2xl font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1 sm:text-[1.7rem]">
+                      {p.title}
+                    </h2>
+                    <GoldRule className="mt-4 w-8 transition-all duration-500 group-hover:w-14" />
+                    <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-charcoal/75 sm:text-lg">
+                      {p.body}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </ol>
 
-                <PeakIcon className="h-3.5 w-3.5" />
-                <h2 className="mt-7 font-serif text-3xl font-medium leading-tight text-primary lg:text-[2.1rem]">
-                  {p.title}
-                </h2>
-                <GoldRule className="mt-6 w-10 transition-all duration-500 group-hover:w-20" />
-                <p className="mt-6 max-w-md font-sans text-lg leading-relaxed text-charcoal/75">
-                  {p.body}
-                </p>
-              </Reveal>
-            ))}
+            <Reveal
+              as="figure"
+              delay={100}
+              className="relative min-h-[26rem] overflow-hidden rounded-sm border border-charcoal/10 bg-white shadow-[0_28px_70px_-48px_rgba(4,64,41,0.4)] lg:h-full lg:min-h-0"
+            >
+              <div
+                aria-hidden="true"
+                className="absolute inset-y-0 left-0 z-10 w-px bg-gold/70"
+              />
+              <Image
+                src="/images/our-approach-principles.jpg"
+                alt="A limestone colonnade and reflecting pool at a contemporary institution"
+                fill
+                sizes="(min-width: 1024px) 38vw, 100vw"
+                className="object-cover object-center"
+              />
+            </Reveal>
           </div>
         </div>
       </section>
