@@ -92,7 +92,7 @@ export default function WhatWeDoPage() {
           <Reveal
             as="figure"
             delay={100}
-            className="relative self-center overflow-hidden rounded-sm border border-charcoal/10 bg-white shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)]"
+            className="relative self-center overflow-hidden rounded-sm border border-charcoal/10 bg-white shadow-[0_28px_70px_-48px_rgba(4,64,41,0.45)] lg:self-end lg:max-xl:aspect-[4/3]"
           >
             <div
               aria-hidden="true"
@@ -105,7 +105,7 @@ export default function WhatWeDoPage() {
               height={1024}
               priority
               sizes="(min-width: 1024px) 58vw, 100vw"
-              className="h-auto w-full"
+              className="h-auto w-full lg:max-xl:h-full lg:max-xl:object-cover lg:max-xl:object-center"
             />
           </Reveal>
         </div>
