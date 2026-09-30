@@ -6,19 +6,63 @@ import { GoldRule, PeakMotif } from "./ui";
 
 type Sector = {
   name: string;
+  description: string;
   icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 };
 
 const sectors: Sector[] = [
-  { name: "Healthcare & Healthtech", icon: HealthIcon },
-  { name: "Financial Services & Fintech", icon: FinanceIcon },
-  { name: "Manufacturing", icon: ManufacturingIcon },
-  { name: "Logistics & Mobility", icon: MobilityIcon },
-  { name: "Energy", icon: EnergyIcon },
-  { name: "Sports & Sportstech", icon: SportsIcon },
-  { name: "Artificial Intelligence (AI)", icon: AiIcon },
-  { name: "Technology & Data Centers", icon: DataIcon },
+  {
+    name: "Healthcare & Healthtech",
+    description:
+      "We target healthcare and healthtech businesses benefiting from resilient demand, innovation and market consolidation. Our focus spans healthcare services, medical products and medtech, diagnostics, digital health and healthcare software, with particular interest in businesses combining defensible market positions with clear pathways to scale.",
+    icon: HealthIcon,
+  },
+  {
+    name: "Financial Services & Fintech",
+    description:
+      "Our financial-services activity draws on deep experience across private markets, financial infrastructure and technology. We evaluate opportunities across payments, wealth and asset management, fund infrastructure, financial software and specialist financial-services businesses, supporting strategic acquisitions, growth investments and platform development.",
+    icon: FinanceIcon,
+  },
+  {
+    name: "Manufacturing",
+    description:
+      "We focus on established manufacturing and industrial businesses where new ownership can accelerate operational improvement, international expansion and consolidation. Priority opportunities include founder and family-owned businesses, succession situations, carve-outs and differentiated industrial platforms with strong customer relationships, proprietary capabilities and defensible market positions.",
+    icon: ManufacturingIcon,
+  },
+  {
+    name: "Logistics & Mobility",
+    description:
+      "We invest across logistics, transportation and mobility, with a focus on businesses positioned within increasingly complex supply chains and transportation networks. Opportunities include distribution, fleet and mobility platforms, automotive-related assets and technology-enabled logistics businesses where consolidation, operational improvement and digitisation can drive value creation.",
+    icon: MobilityIcon,
+  },
+  {
+    name: "Energy",
+    description:
+      "Our energy focus spans conventional and emerging energy, infrastructure and enabling technologies. We evaluate cash-generating assets, energy services, power and infrastructure platforms, renewables and technologies supporting the evolution of the global energy system, across acquisitions, growth investments and special situations.",
+    icon: EnergyIcon,
+  },
+  {
+    name: "Sports & Sportstech",
+    description:
+      "We target opportunities across the global sports ecosystem, from franchises and clubs to stadiums, venues, sports-linked real estate, media rights, commercial platforms and sports technology. Our activity combines buy-side mandates with proprietary and selectively marketed deal flow, focusing on situations where ownership, infrastructure and commercial monetisation can create long-term value.",
+    icon: SportsIcon,
+  },
+  {
+    name: "Artificial Intelligence (AI)",
+    description:
+      "We focus on commercially proven AI businesses where technology translates into measurable enterprise value. We target proprietary platforms, vertical AI applications and AI-enabled businesses with differentiated technology, strong customer adoption, defensible IP and scalable economics, across growth investments, control acquisitions and strategic transactions.",
+    icon: AiIcon,
+  },
+  {
+    name: "Data Centres & Technology",
+    description:
+      "We focus on the digital infrastructure and technology businesses underpinning the growth of cloud computing, AI and increasingly data-intensive economies. Our opportunity set spans data centres, compute and connectivity infrastructure, hosting and managed services, enterprise technology platforms and mission-critical software, with particular interest in assets benefiting from structural demand growth, high barriers to entry and recurring or contracted revenues.",
+    icon: DataIcon,
+  },
 ];
+
+const sectorIntro =
+  "Truvon Capital originates, evaluates and executes private-market opportunities across a focused set of sectors where our relationships, investment experience and capital network provide differentiated access. We work with investors on buy-side mandates while originating a curated pipeline of proprietary and selectively marketed opportunities through founders, owners, operators and transaction partners.";
 
 export default function TargetSectors() {
   const [active, setActive] = useState(0);
@@ -97,8 +141,15 @@ export default function TargetSectors() {
           </h2>
           <GoldRule draw className="mt-5" />
         </Reveal>
+        <Reveal
+          as="p"
+          delay={80}
+          className="mt-8 max-w-4xl font-sans text-lg leading-relaxed text-charcoal/75"
+        >
+          {sectorIntro}
+        </Reveal>
 
-        <div className="mt-14 grid border border-charcoal/10 lg:mt-16 lg:grid-cols-12">
+        <div className="mt-12 grid border border-charcoal/10 lg:mt-14 lg:grid-cols-12">
           <Reveal className="relative min-h-[280px] overflow-hidden bg-primary sm:min-h-[360px] lg:col-span-5 lg:min-h-[640px]">
             <div
               aria-hidden="true"
@@ -133,8 +184,11 @@ export default function TargetSectors() {
 
               <div key={`label-${sectors[active].name}`} className="sector-label-enter max-sm:[animation:none]">
                 <span className="mb-5 block h-px w-12 bg-gold" aria-hidden="true" />
-                <p aria-live="polite" className="max-w-[13ch] font-serif text-3xl font-medium leading-tight text-white sm:text-4xl">
+                <p aria-live="polite" className="max-w-[16ch] font-serif text-3xl font-medium leading-tight text-white sm:text-4xl">
                   {sectors[active].name}
+                </p>
+                <p className="mt-5 hidden max-w-[46ch] font-sans text-sm leading-relaxed text-white/65 lg:block">
+                  {sectors[active].description}
                 </p>
               </div>
             </div>
@@ -181,7 +235,7 @@ export default function TargetSectors() {
                     onClick={() => setActive(index)}
                     onMouseEnter={() => setActive(index)}
                     onFocus={() => setActive(index)}
-                    className={`group relative flex min-h-[104px] w-full items-center gap-5 overflow-hidden px-6 py-6 text-left transition-colors duration-200 sm:min-h-[128px] sm:px-8 sm:duration-500 lg:min-h-[80px] lg:px-10 lg:py-5 ${
+                    className={`group relative grid min-h-[104px] w-full grid-cols-[1.75rem_2rem_minmax(0,1fr)] items-start gap-x-4 overflow-hidden px-6 py-7 text-left transition-colors duration-200 sm:min-h-[128px] sm:px-8 sm:duration-500 lg:flex lg:min-h-[80px] lg:items-center lg:gap-5 lg:px-10 lg:py-5 ${
                       selected ? "bg-white" : "hover:bg-white/70"
                     }`}
                   >
@@ -191,7 +245,7 @@ export default function TargetSectors() {
                         selected ? "w-full" : "w-0 group-hover:w-full"
                       }`}
                     />
-                    <span className="w-7 shrink-0 font-serif text-xs tracking-wide text-charcoal/35">
+                    <span className="w-7 shrink-0 pt-1 font-serif text-xs tracking-wide text-charcoal/35 lg:pt-0">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <Icon
@@ -202,12 +256,15 @@ export default function TargetSectors() {
                           : "text-primary/55 group-hover:text-gold"
                       }`}
                     />
-                    <span className={`font-serif text-xl font-medium leading-tight transition-colors duration-300 lg:text-[1.35rem] ${selected ? "text-primary" : "text-charcoal/80 group-hover:text-primary"}`}>
+                    <span className={`min-w-0 font-serif text-xl font-medium leading-tight transition-colors duration-300 lg:flex-1 lg:text-[1.35rem] ${selected ? "text-primary" : "text-charcoal/80 group-hover:text-primary"}`}>
                       {sector.name}
+                    </span>
+                    <span className="col-span-3 mt-5 block font-sans text-sm leading-relaxed text-charcoal/65 lg:hidden">
+                      {sector.description}
                     </span>
                     <span
                       aria-hidden="true"
-                      className={`ml-auto hidden text-gold transition-all duration-500 sm:block ${
+                      className={`ml-auto hidden text-gold transition-all duration-500 lg:block ${
                         selected ? "translate-x-0 opacity-100" : "-translate-x-2 opacity-0"
                       }`}
                     >
