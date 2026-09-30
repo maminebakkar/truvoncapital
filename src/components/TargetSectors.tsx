@@ -255,7 +255,11 @@ export default function TargetSectors() {
                         );
                       }
                     }}
-                    onMouseEnter={() => setActive(index)}
+                    onPointerMove={(event) => {
+                      if (event.pointerType === "mouse" && active !== index) {
+                        setActive(index);
+                      }
+                    }}
                     onFocus={() => setActive(index)}
                     className={`group relative grid min-h-[104px] w-full grid-cols-[1.75rem_2rem_minmax(0,1fr)_2.5rem] items-center gap-x-4 overflow-hidden px-6 py-7 text-left transition-colors duration-200 sm:min-h-[128px] sm:px-8 sm:duration-500 lg:flex lg:min-h-[80px] lg:gap-5 lg:px-10 lg:py-5 ${
                       selected ? "bg-white" : "hover:bg-white/70"
