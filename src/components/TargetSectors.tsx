@@ -61,8 +61,11 @@ const sectors: Sector[] = [
   },
 ];
 
-const sectorIntro =
-  "Truvon Capital originates, evaluates and executes private-market opportunities across a focused set of sectors where our relationships, investment experience and capital network provide differentiated access. We work with investors on buy-side mandates while originating a curated pipeline of proprietary and selectively marketed opportunities through founders, owners, operators and transaction partners.";
+const sectorIntroLead =
+  "Truvon Capital originates, evaluates and executes private-market opportunities across a focused set of sectors where our relationships, investment experience and capital network provide differentiated access.";
+
+const sectorIntroSupporting =
+  "We work with investors on buy-side mandates while originating a curated pipeline of proprietary and selectively marketed opportunities through founders, owners, operators and transaction partners.";
 
 export default function TargetSectors() {
   const [active, setActive] = useState(0);
@@ -153,13 +156,22 @@ export default function TargetSectors() {
           </h2>
           <GoldRule draw className="mt-5" />
         </Reveal>
-        <Reveal
-          as="p"
-          delay={80}
-          className="mt-8 max-w-4xl font-sans text-lg leading-relaxed text-charcoal/75"
-        >
-          {sectorIntro}
-        </Reveal>
+        <div className="mt-8 grid gap-7 lg:grid-cols-12 lg:gap-0">
+          <Reveal
+            as="p"
+            delay={80}
+            className="max-w-[36rem] font-serif text-[1.65rem] font-medium leading-[1.28] text-primary sm:text-[1.85rem] lg:col-span-6 lg:pr-14"
+          >
+            {sectorIntroLead}
+          </Reveal>
+          <Reveal
+            as="p"
+            delay={140}
+            className="max-w-[35rem] border-t border-charcoal/10 pt-7 font-sans text-base leading-relaxed text-charcoal/70 sm:text-lg lg:col-span-6 lg:border-l lg:border-t-0 lg:pb-1 lg:pl-14 lg:pt-1"
+          >
+            {sectorIntroSupporting}
+          </Reveal>
+        </div>
 
         <div className="mt-12 grid border border-charcoal/10 lg:mt-14 lg:grid-cols-12">
           <Reveal className="relative min-h-[280px] overflow-hidden bg-primary sm:min-h-[360px] lg:col-span-5 lg:min-h-[640px]">
