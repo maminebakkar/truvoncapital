@@ -66,6 +66,7 @@ const sectorIntro =
 
 export default function TargetSectors() {
   const [active, setActive] = useState(0);
+  const [expandedMobile, setExpandedMobile] = useState<number | null>(null);
   const stickyFocusRef = useRef<HTMLDivElement>(null);
   const sectorButtonRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const ActiveIcon = sectors[active].icon;
@@ -127,6 +128,17 @@ export default function TargetSectors() {
       mobileQuery.removeEventListener("change", requestObserverReset);
       if (resizeFrame) window.cancelAnimationFrame(resizeFrame);
     };
+  }, []);
+
+  useEffect(() => {
+    const mobileAndTabletQuery = window.matchMedia("(max-width: 1023px)");
+    const collapseAtDesktop = () => {
+      if (!mobileAndTabletQuery.matches) setExpandedMobile(null);
+    };
+
+    mobileAndTabletQuery.addEventListener("change", collapseAtDesktop);
+    return () =>
+      mobileAndTabletQuery.removeEventListener("change", collapseAtDesktop);
   }, []);
 
   return (
@@ -219,6 +231,7 @@ export default function TargetSectors() {
             {sectors.map((sector, index) => {
               const Icon = sector.icon;
               const selected = active === index;
+              const expanded = expandedMobile === index;
               return (
                 <Reveal
                   key={sector.name}
@@ -232,10 +245,19 @@ export default function TargetSectors() {
                     data-sector-index={index}
                     type="button"
                     aria-pressed={selected}
-                    onClick={() => setActive(index)}
+                    aria-expanded={expanded}
+                    aria-controls={`sector-description-${index}`}
+                    onClick={() => {
+                      setActive(index);
+                      if (window.matchMedia("(max-width: 1023px)").matches) {
+                        setExpandedMobile((current) =>
+                          current === index ? null : index,
+                        );
+                      }
+                    }}
                     onMouseEnter={() => setActive(index)}
                     onFocus={() => setActive(index)}
-                    className={`group relative grid min-h-[104px] w-full grid-cols-[1.75rem_2rem_minmax(0,1fr)] items-start gap-x-4 overflow-hidden px-6 py-7 text-left transition-colors duration-200 sm:min-h-[128px] sm:px-8 sm:duration-500 lg:flex lg:min-h-[80px] lg:items-center lg:gap-5 lg:px-10 lg:py-5 ${
+                    className={`group relative grid min-h-[104px] w-full grid-cols-[1.75rem_2rem_minmax(0,1fr)_2.5rem] items-center gap-x-4 overflow-hidden px-6 py-7 text-left transition-colors duration-200 sm:min-h-[128px] sm:px-8 sm:duration-500 lg:flex lg:min-h-[80px] lg:gap-5 lg:px-10 lg:py-5 ${
                       selected ? "bg-white" : "hover:bg-white/70"
                     }`}
                   >
@@ -259,7 +281,29 @@ export default function TargetSectors() {
                     <span className={`min-w-0 font-serif text-xl font-medium leading-tight transition-colors duration-300 lg:flex-1 lg:text-[1.35rem] ${selected ? "text-primary" : "text-charcoal/80 group-hover:text-primary"}`}>
                       {sector.name}
                     </span>
-                    <span className="col-span-3 mt-5 block font-sans text-sm leading-relaxed text-charcoal/65 lg:hidden">
+                    <span
+                      aria-hidden="true"
+                      className={`relative flex h-9 w-9 items-center justify-center justify-self-end rounded-sm border transition-colors duration-300 lg:hidden ${
+                        expanded
+                          ? "border-primary bg-primary"
+                          : "border-gold/45 bg-transparent"
+                      }`}
+                    >
+                      <span
+                        className={`absolute h-px w-3.5 ${expanded ? "bg-gold" : "bg-primary"}`}
+                      />
+                      <span
+                        className={`absolute h-3.5 w-px transition-transform duration-300 ${
+                          expanded ? "scale-y-0 bg-gold" : "scale-y-100 bg-primary"
+                        }`}
+                      />
+                    </span>
+                    <span
+                      id={`sector-description-${index}`}
+                      className={`col-span-4 mt-5 border-t border-charcoal/10 pt-5 font-sans text-sm leading-relaxed text-charcoal/65 lg:hidden ${
+                        expanded ? "block" : "hidden"
+                      }`}
+                    >
                       {sector.description}
                     </span>
                     <span
