@@ -156,18 +156,18 @@ export default function TargetSectors() {
           </h2>
           <GoldRule draw className="mt-5" />
         </Reveal>
-        <div className="mt-8 max-w-4xl">
+        <div className="mt-8 w-full">
           <Reveal
             as="p"
             delay={80}
-            className="max-w-[42rem] font-serif text-[1.55rem] font-medium leading-[1.32] text-primary sm:text-[1.75rem]"
+            className="w-full font-serif text-[1.55rem] font-medium leading-[1.32] text-primary sm:text-[1.75rem]"
           >
             {sectorIntroLead}
           </Reveal>
           <Reveal
             as="p"
             delay={140}
-            className="mt-5 max-w-3xl font-sans text-base leading-relaxed text-charcoal/70 sm:mt-6 sm:text-lg"
+            className="mt-5 w-full font-sans text-base leading-relaxed text-charcoal/70 sm:mt-6 sm:text-lg"
           >
             {sectorIntroSupporting}
           </Reveal>
