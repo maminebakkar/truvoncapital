@@ -6,6 +6,7 @@ type RevealProps = {
   children: ReactNode;
   as?: ElementType;
   className?: string;
+  id?: string;
   /** Stagger delay in ms. */
   delay?: number;
 };
@@ -18,6 +19,7 @@ export default function Reveal({
   children,
   as: Tag = "div",
   className = "",
+  id,
   delay = 0,
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
@@ -51,6 +53,7 @@ export default function Reveal({
   return (
     <Tag
       ref={ref as never}
+      id={id}
       className={`reveal ${visible ? "is-visible" : ""} ${className}`}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >

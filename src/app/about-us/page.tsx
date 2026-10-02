@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Masthead from "@/components/Masthead";
+import ManagingPartnersSection from "@/components/ManagingPartnersSection";
 import Reveal from "@/components/Reveal";
 import { ButtonLink, Eyebrow, GoldRule, PeakIcon } from "@/components/ui";
 
@@ -94,6 +95,8 @@ export default function AboutUsPage() {
           ))}
         </div>
       </section>
+
+      <ManagingPartnersSection />
 
       <section className="relative overflow-hidden bg-primary">
         <div
