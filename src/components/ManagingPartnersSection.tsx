@@ -47,10 +47,10 @@ export default function ManagingPartnersSection() {
                     {partner.name}
                   </h3>
                 </div>
-                <span className="mt-5 block font-sans text-[0.65rem] font-semibold uppercase tracking-label text-gold">
+                <span className="ml-9 mt-5 block font-sans text-[0.65rem] font-semibold uppercase tracking-label text-gold sm:ml-11 lg:ml-12">
                   {partner.role}
                 </span>
-                <GoldRule className="mt-7 w-10 transition-all duration-500 group-hover:w-20" />
+                <GoldRule className="ml-9 mt-7 w-10 transition-all duration-500 group-hover:w-20 sm:ml-11 lg:ml-12" />
 
                 {partner.image ? (
                   <div className="relative mt-9 aspect-[4/5] max-w-xs overflow-hidden">

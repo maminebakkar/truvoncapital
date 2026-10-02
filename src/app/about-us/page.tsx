@@ -89,9 +89,9 @@ export default function AboutUsPage() {
               </div>
               <GoldRule
                 draw
-                className="mt-7 w-10 transition-all duration-500 group-hover:w-20"
+                className="ml-9 mt-7 w-10 transition-all duration-500 group-hover:w-20 sm:ml-11 lg:ml-12"
               />
-              <p className="mt-7 max-w-xs font-sans text-base leading-relaxed text-charcoal/70">
+              <p className="ml-9 mt-7 max-w-xs font-sans text-base leading-relaxed text-charcoal/70 sm:ml-11 lg:ml-12">
                 {item.v}
               </p>
             </Reveal>
