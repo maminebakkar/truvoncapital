@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
-import { Eyebrow, GoldRule, PeakIcon } from "./ui";
+import TruvonArrow from "./TruvonArrow";
+import { Eyebrow, GoldRule } from "./ui";
 import { managingPartners } from "@/lib/managing-partners";
 
 export default function ManagingPartnersSection() {
@@ -44,7 +45,7 @@ export default function ManagingPartnersSection() {
                   <span className="font-sans text-[0.65rem] font-semibold tracking-[0.24em] text-gold">
                     {String(index + 1).padStart(2, "0")} / 03
                   </span>
-                  <PeakIcon className="h-3.5 w-3.5 opacity-70" />
+                  <TruvonArrow className="w-[1.15rem] opacity-80" />
                 </div>
                 <h3 className="mt-7 max-w-[10ch] font-serif text-[2.45rem] font-medium leading-[0.98] text-primary sm:text-5xl lg:text-[3.4rem]">
                   {partner.name}

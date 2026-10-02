@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Masthead from "@/components/Masthead";
 import ManagingPartnersSection from "@/components/ManagingPartnersSection";
 import Reveal from "@/components/Reveal";
-import { ButtonLink, Eyebrow, GoldRule, PeakIcon } from "@/components/ui";
+import TruvonArrow from "@/components/TruvonArrow";
+import { ButtonLink, Eyebrow, GoldRule } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "About us",
@@ -80,7 +81,7 @@ export default function AboutUsPage() {
                 i > 0 ? "sm:border-l sm:border-charcoal/10 sm:pl-12" : ""
               } ${i < pillars.length - 1 ? "sm:pr-12" : ""}`}
             >
-              <PeakIcon className="h-3.5 w-3.5" />
+              <TruvonArrow className="w-[1.15rem]" />
               <span className="mt-6 font-serif text-4xl font-medium text-primary lg:text-5xl">
                 {item.k}
               </span>
