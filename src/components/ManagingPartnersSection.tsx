@@ -41,15 +41,12 @@ export default function ManagingPartnersSection() {
               className="group scroll-mt-28 border-t border-charcoal/15 py-12 sm:py-14 lg:grid lg:grid-cols-12 lg:gap-16 lg:py-20"
             >
               <div className="lg:col-span-4">
-                <div className="flex items-center justify-between gap-6">
-                  <span className="font-sans text-[0.65rem] font-semibold tracking-[0.24em] text-gold">
-                    {String(index + 1).padStart(2, "0")} / 03
-                  </span>
-                  <TruvonArrow className="w-[1.15rem] opacity-80" />
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <TruvonArrow className="mt-[0.4rem] w-6 shrink-0 opacity-80 sm:mt-[0.55rem] sm:w-7 lg:mt-[0.65rem] lg:w-8" />
+                  <h3 className="max-w-[10ch] font-serif text-[2.45rem] font-medium leading-[0.98] text-primary sm:text-5xl lg:text-[3.4rem]">
+                    {partner.name}
+                  </h3>
                 </div>
-                <h3 className="mt-7 max-w-[10ch] font-serif text-[2.45rem] font-medium leading-[0.98] text-primary sm:text-5xl lg:text-[3.4rem]">
-                  {partner.name}
-                </h3>
                 <span className="mt-5 block font-sans text-[0.65rem] font-semibold uppercase tracking-label text-gold">
                   {partner.role}
                 </span>

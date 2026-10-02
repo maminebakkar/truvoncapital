@@ -81,10 +81,12 @@ export default function AboutUsPage() {
                 i > 0 ? "sm:border-l sm:border-charcoal/10 sm:pl-12" : ""
               } ${i < pillars.length - 1 ? "sm:pr-12" : ""}`}
             >
-              <TruvonArrow className="w-[1.15rem]" />
-              <span className="mt-6 font-serif text-4xl font-medium text-primary lg:text-5xl">
-                {item.k}
-              </span>
+              <div className="flex items-start gap-3 sm:gap-4">
+                <TruvonArrow className="mt-[0.4rem] w-6 shrink-0 sm:mt-[0.55rem] sm:w-7 lg:mt-[0.65rem] lg:w-8" />
+                <span className="font-serif text-4xl font-medium text-primary lg:text-5xl">
+                  {item.k}
+                </span>
+              </div>
               <GoldRule
                 draw
                 className="mt-7 w-10 transition-all duration-500 group-hover:w-20"
