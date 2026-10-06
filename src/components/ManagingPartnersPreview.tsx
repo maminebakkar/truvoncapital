@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import Reveal from "./Reveal";
-import { Eyebrow, GoldRule, PeakIcon } from "./ui";
+import { Eyebrow, GoldRule } from "./ui";
 import { managingPartners } from "@/lib/managing-partners";
 
 export default function ManagingPartnersPreview() {
@@ -27,24 +28,36 @@ export default function ManagingPartnersPreview() {
           </p>
         </Reveal>
 
-        <div className="mt-12 border-y border-charcoal/15 lg:mt-16">
+        <div className="mt-12 grid border-y border-charcoal/15 lg:mt-16 lg:grid-cols-3">
           {managingPartners.map((partner, index) => (
             <Reveal
               key={partner.id}
               delay={index * 80}
               className={
-                index > 0 ? "border-t border-charcoal/15" : undefined
+                index > 0
+                  ? "border-t border-charcoal/15 lg:border-l lg:border-t-0"
+                  : undefined
               }
             >
               <Link
                 href={`/about-us#${partner.id}`}
-                className="group grid gap-x-7 gap-y-5 py-8 transition-colors duration-500 hover:bg-white/65 focus-visible:bg-white/65 sm:grid-cols-[3rem_minmax(0,1fr)_auto] sm:items-center sm:px-5 lg:grid-cols-12 lg:px-7 lg:py-10"
+                className="group flex h-full flex-col py-10 transition-colors duration-500 hover:bg-white/65 focus-visible:bg-white/65 sm:px-6 lg:px-8 lg:py-12"
                 aria-label={`View ${partner.name}'s profile`}
               >
-                <span className="font-sans text-[0.65rem] font-semibold tracking-[0.24em] text-gold sm:col-span-1">
-                  {String(index + 1).padStart(2, "0")} / 03
-                </span>
-                <div className="sm:col-span-1 lg:col-span-4">
+                {partner.image ? (
+                  <div className="relative aspect-[4/5] w-full max-w-[20rem] overflow-hidden border border-charcoal/10 sm:max-w-[22rem] lg:max-w-none">
+                    <Image
+                      src={partner.image.src}
+                      alt={partner.image.alt}
+                      fill
+                      sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 30vw"
+                      style={{ objectPosition: partner.image.position }}
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                    />
+                  </div>
+                ) : null}
+
+                <div className="mt-8">
                   <h3 className="font-serif text-[1.8rem] font-medium leading-tight text-primary transition-transform duration-500 group-hover:translate-x-1 sm:text-3xl">
                     {partner.name}
                   </h3>
@@ -52,10 +65,11 @@ export default function ManagingPartnersPreview() {
                     {partner.role}
                   </span>
                 </div>
-                <p className="max-w-2xl font-sans text-base leading-relaxed text-charcoal/70 sm:col-start-2 sm:pr-6 lg:col-span-5 lg:col-start-auto lg:pr-10">
+                <GoldRule className="mt-6 w-10 transition-all duration-500 group-hover:w-16" />
+                <p className="mt-6 max-w-sm font-sans text-base leading-relaxed text-charcoal/70">
                   {partner.summary}
                 </p>
-                <span className="inline-flex items-center gap-3 font-sans text-xs font-semibold uppercase tracking-wide text-primary sm:col-start-3 sm:row-start-1 sm:row-end-3 sm:self-center lg:col-span-2 lg:col-start-auto lg:row-auto lg:justify-self-end">
+                <span className="mt-8 inline-flex items-center gap-3 self-start font-sans text-xs font-semibold uppercase tracking-wide text-primary lg:mt-auto lg:pt-10">
                   <span className="link-underline">View profile</span>
                   <span
                     aria-hidden="true"

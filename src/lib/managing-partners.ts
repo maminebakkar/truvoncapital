@@ -7,6 +7,7 @@ export type ManagingPartner = {
   image?: {
     src: string;
     alt: string;
+    position: string;
   };
 };
 
@@ -17,6 +18,11 @@ export const managingPartners: ManagingPartner[] = [
     role: "Managing Partner",
     summary:
       "Entrepreneur, investor and strategic advisor with over two decades building businesses and unlocking value in the Middle East and beyond.",
+    image: {
+      src: "/images/managing-partners/david-grunfeld.jpg",
+      alt: "David Grunfeld, Managing Partner at Truvon Capital",
+      position: "50% 38%",
+    },
     biography: [
       "Entrepreneur, investor and strategic advisor with over two decades building businesses, backing founders, and helping large-scale enterprises, institutions and capital partners unlock value in the Middle East and beyond.",
       "Experience across the full private markets value chain, from leading and investing in start-ups, scale-ups and tech unicorns to advising SWFs, government bodies, institutional investors, CVCs and family offices.",
@@ -29,6 +35,11 @@ export const managingPartners: ManagingPartner[] = [
     role: "Managing Partner",
     summary:
       "Private-markets and financial-services executive focused on fintech, investment technology and cross-border growth.",
+    image: {
+      src: "/images/managing-partners/javier-llamas.png",
+      alt: "Javier Llamas, Managing Partner at Truvon Capital",
+      position: "50% 42%",
+    },
     biography: [
       "Private-markets and financial-services executive with nearly two decades of experience spanning fintech, foreign exchange, international payments, investment technology, and cross-border growth, with a particular focus on serving fund and asset managers across Luxembourg, London, and the Channel Islands.",
       "Recent Chief Commercial Officer of a global investment-technology business, following almost 18 years at Monex Europe in senior leadership positions, including Head of Luxembourg.",
@@ -41,6 +52,11 @@ export const managingPartners: ManagingPartner[] = [
     role: "Managing Partner",
     summary:
       "Investor, operator and strategic advisor spanning technology, AI, financial services, healthcare and mobility.",
+    image: {
+      src: "/images/managing-partners/mo-chaara.jpeg",
+      alt: "Dr. Mo Chaara, Managing Partner at Truvon Capital",
+      position: "50% 36%",
+    },
     biography: [
       "Investor, operator, and strategic advisor with 20 years of global leadership experience across technology, AI, financial services, healthcare, and mobility.",
       "Active investor and Investment Committee participant with experience across Comcast Interactive Capital, the UPS Innovation Fund, and Abdul Latif Jameel, leading strategic and technical DD, and supporting M&A and portfolio value creation.",
