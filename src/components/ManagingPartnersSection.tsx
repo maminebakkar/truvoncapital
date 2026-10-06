@@ -53,7 +53,7 @@ export default function ManagingPartnersSection() {
               ) : null}
 
               <div className="mt-8 lg:mt-0 lg:pl-6">
-                <h3 className="max-w-[10ch] font-serif text-[2.45rem] font-medium leading-[0.98] text-primary sm:text-5xl lg:text-[3.4rem]">
+                <h3 className="max-w-[10ch] font-serif text-[2.3rem] font-medium leading-[0.98] text-primary sm:text-[2.8rem] lg:text-[3.1rem]">
                   {partner.name}
                 </h3>
                 <span className="mt-5 block font-sans text-[0.65rem] font-semibold uppercase tracking-label text-gold">
