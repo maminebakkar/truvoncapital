@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
-import TruvonArrow from "./TruvonArrow";
 import { Eyebrow, GoldRule } from "./ui";
 import { managingPartners } from "@/lib/managing-partners";
 
@@ -38,10 +37,10 @@ export default function ManagingPartnersSection() {
               key={partner.id}
               id={partner.id}
               delay={index * 70}
-              className="group scroll-mt-28 border-t border-charcoal/15 py-12 sm:py-14 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-10 lg:py-20 xl:gap-x-14"
+              className="group scroll-mt-28 border-t border-charcoal/15 py-12 sm:py-14 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)_minmax(0,2.05fr)] lg:items-start lg:gap-x-7 lg:py-20"
             >
               {partner.image ? (
-                <div className="relative aspect-[4/5] w-full max-w-[20rem] overflow-hidden border border-charcoal/10 sm:max-w-[22rem] lg:col-span-3 lg:max-w-none">
+                <div className="relative aspect-[4/5] w-full max-w-[20rem] overflow-hidden border border-charcoal/10 sm:max-w-[22rem] lg:max-w-none">
                   <Image
                     src={partner.image.src}
                     alt={partner.image.alt}
@@ -53,21 +52,18 @@ export default function ManagingPartnersSection() {
                 </div>
               ) : null}
 
-              <div className="mt-8 lg:col-span-3 lg:mt-0">
-                <div className="flex items-start gap-3 sm:gap-4">
-                  <TruvonArrow className="mt-[0.4rem] w-6 shrink-0 opacity-80 sm:mt-[0.55rem] sm:w-7 lg:mt-[0.65rem] lg:w-8" />
-                  <h3 className="max-w-[10ch] font-serif text-[2.45rem] font-medium leading-[0.98] text-primary sm:text-5xl lg:text-[3.4rem]">
-                    {partner.name}
-                  </h3>
-                </div>
-                <span className="ml-9 mt-5 block font-sans text-[0.65rem] font-semibold uppercase tracking-label text-gold sm:ml-11 lg:ml-12">
+              <div className="mt-8 lg:mt-0">
+                <h3 className="max-w-[10ch] font-serif text-[2.45rem] font-medium leading-[0.98] text-primary sm:text-5xl lg:text-[3.4rem]">
+                  {partner.name}
+                </h3>
+                <span className="mt-5 block font-sans text-[0.65rem] font-semibold uppercase tracking-label text-gold">
                   {partner.role}
                 </span>
-                <GoldRule className="ml-9 mt-7 w-10 transition-all duration-500 group-hover:w-20 sm:ml-11 lg:ml-12" />
+                <GoldRule className="mt-7 w-10 transition-all duration-500 group-hover:w-20" />
 
               </div>
 
-              <div className="mt-9 space-y-6 lg:col-span-6 lg:mt-0 lg:max-w-[46rem]">
+              <div className="mt-9 space-y-6 lg:mt-0 lg:max-w-[46rem] lg:pl-7 xl:pl-10">
                 {partner.biography.map((paragraph, paragraphIndex) => (
                   <p
                     key={paragraph}
