@@ -52,7 +52,7 @@ export default function ManagingPartnersSection() {
                 </div>
               ) : null}
 
-              <div className="mt-8 lg:mt-0">
+              <div className="mt-8 lg:mt-0 lg:pl-6">
                 <h3 className="max-w-[10ch] font-serif text-[2.45rem] font-medium leading-[0.98] text-primary sm:text-5xl lg:text-[3.4rem]">
                   {partner.name}
                 </h3>
@@ -69,7 +69,7 @@ export default function ManagingPartnersSection() {
                     key={paragraph}
                     className={
                       paragraphIndex === 0
-                        ? "font-serif text-[1.55rem] font-medium leading-[1.32] text-primary sm:text-[1.8rem]"
+                        ? "font-serif text-[1.45rem] font-medium leading-[1.32] text-primary sm:text-[1.68rem]"
                         : "font-sans text-base leading-relaxed text-charcoal/75 sm:text-lg"
                     }
                   >
