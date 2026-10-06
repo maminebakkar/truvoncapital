@@ -11,8 +11,8 @@ export default function ManagingPartnersPreview() {
       className="border-t border-charcoal/10 bg-offwhite py-24 lg:py-32"
     >
       <div className="container-editorial">
-        <Reveal>
-          <div className="max-w-3xl">
+        <Reveal className="grid gap-8 lg:grid-cols-12 lg:gap-x-12">
+          <div className="lg:col-span-5">
             <Eyebrow>Our leadership</Eyebrow>
             <GoldRule draw className="mt-5" />
             <h2
@@ -21,11 +21,11 @@ export default function ManagingPartnersPreview() {
             >
               Managing Partners
             </h2>
-            <p className="mt-6 max-w-2xl font-sans text-lg leading-relaxed text-charcoal/70">
-              Three complementary perspectives united by a shared commitment to
-              trust, disciplined execution and long-term value creation.
-            </p>
           </div>
+          <p className="max-w-xl font-sans text-lg leading-relaxed text-charcoal/70 lg:col-span-6 lg:col-start-7 lg:pt-[3.8125rem]">
+            Three complementary perspectives united by a shared commitment to
+            trust, disciplined execution and long-term value creation.
+          </p>
         </Reveal>
 
         <div className="mt-12 grid border-y border-charcoal/15 lg:mt-16 lg:grid-cols-3">
