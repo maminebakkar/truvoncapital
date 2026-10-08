@@ -49,12 +49,12 @@ export const managingPartners: ManagingPartner[] = [
   {
     id: "mo-chaara",
     name: "Dr. Mo Chaara",
-    role: "Managing Partner",
+    role: "Investor",
     summary:
       "Investor, operator and strategic advisor spanning technology, AI, financial services, healthcare and mobility.",
     image: {
       src: "/images/managing-partners/mo-chaara.jpeg",
-      alt: "Dr. Mo Chaara, Managing Partner at Truvon Capital",
+      alt: "Dr. Mo Chaara, Investor at Truvon Capital",
       position: "50% 36%",
     },
     biography: [
