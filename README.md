@@ -1,6 +1,6 @@
 # Truvon Capital
 
-Production website for **Truvon Capital** — a global private markets platform
+Production website for **Truvon Capital** — a global private markets firm
 (private equity & M&A opportunity sourcing, capital relationships, transaction
 coordination).
 

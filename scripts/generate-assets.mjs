@@ -176,7 +176,7 @@ async function main() {
     name: "Truvon Capital",
     short_name: "Truvon",
     description:
-      "A global private markets platform for private equity and M&A opportunity sourcing, capital relationships and transaction coordination.",
+      "A global private markets firm for private equity and M&A opportunity sourcing, capital relationships and transaction coordination.",
     start_url: "/",
     display: "standalone",
     background_color: "#F8F7F3",

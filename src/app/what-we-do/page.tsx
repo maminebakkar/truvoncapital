@@ -17,7 +17,7 @@ const capabilities = [
     n: "01",
     title: "Opportunity sourcing and qualification",
     body: [
-      "We source and assess private equity and M&A opportunities through a broad, global network of investors, owners, advisers, operators and sector specialists.",
+      "We source and assess private equity and M&A opportunities through a broad, global network of investors, owners, operators and sector specialists.",
       "Each opportunity is reviewed for strategic fit, quality, timing, available information, reputational considerations and potential alignment with relevant capital.",
     ],
   },
@@ -33,7 +33,7 @@ const capabilities = [
     n: "03",
     title: "Transaction coordination",
     body: [
-      "Where we can add value, we support the early stages of evaluation, help create clarity around the opportunity, and coordinate the right advisers, specialists and counterparties.",
+      "Where we can add value, we support the early stages of evaluation, help create clarity around the opportunity, and coordinate the right specialists and counterparties.",
       "We focus on reducing friction, improving communication and helping parties engage with confidence.",
     ],
   },
@@ -41,7 +41,7 @@ const capabilities = [
     n: "04",
     title: "Value creation ecosystem",
     body: [
-      "Capital alone is rarely enough. Truvon Capital is building a broader ecosystem of operating partners, sector specialists, board members, commercial advisers and strategic relationships that can support value creation before, during and after a transaction.",
+      "Capital alone is rarely enough. Truvon Capital is building a broader ecosystem of operating partners, sector specialists, board members, commercial partners and strategic relationships that can support value creation before, during and after a transaction.",
     ],
   },
 ];
@@ -51,7 +51,7 @@ export default function WhatWeDoPage() {
     <>
       <Masthead
         eyebrow="What we do"
-        titleLines={[<>A trusted platform for private market opportunities</>]}
+        titleLines={[<>A trusted firm for private market opportunities</>]}
         intro={
           <p>
             Truvon Capital operates at the intersection of capital, opportunity
@@ -83,7 +83,7 @@ export default function WhatWeDoPage() {
               className="mt-6 w-full font-sans text-lg leading-relaxed text-charcoal/75"
             >
               Our role is not to act as a general fundraiser or conventional
-              investment bank. We are focused on building a trusted platform around
+              investment bank. We are focused on building a trusted firm around
               qualified opportunities, credible capital and long-term value
               creation.
             </Reveal>

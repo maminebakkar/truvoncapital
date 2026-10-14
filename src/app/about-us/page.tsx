@@ -61,7 +61,7 @@ export default function AboutUsPage() {
               delay={140}
               className="mt-10 max-w-2xl font-sans text-lg leading-relaxed text-charcoal/75"
             >
-              We are building a durable private markets platform with the
+              We are building a durable private markets firm with the
               relationships, processes and institutional knowledge required to
               create long-term value across transactions, partnerships and future
               investment activity.

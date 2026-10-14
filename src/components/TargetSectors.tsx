@@ -20,43 +20,43 @@ const sectors: Sector[] = [
   {
     name: "Financial Services & Fintech",
     description:
-      "Our financial-services activity draws on deep experience across private markets, financial infrastructure and technology. We evaluate opportunities across payments, wealth and asset management, fund infrastructure, financial software and specialist financial-services businesses, supporting strategic acquisitions, growth investments and platform development.",
+      "Our financial-services activity draws on deep experience across private markets, financial infrastructure and technology. We evaluate opportunities across payments, wealth and asset management, fund infrastructure, financial software and specialist financial-services businesses, supporting strategic acquisitions, growth investments and firm development.",
     icon: FinanceIcon,
   },
   {
     name: "Manufacturing",
     description:
-      "We focus on established manufacturing and industrial businesses where new ownership can accelerate operational improvement, international expansion and consolidation. Priority opportunities include founder and family-owned businesses, succession situations, carve-outs and differentiated industrial platforms with strong customer relationships, proprietary capabilities and defensible market positions.",
+      "We focus on established manufacturing and industrial businesses where new ownership can accelerate operational improvement, international expansion and consolidation. Priority opportunities include founder and family-owned businesses, succession situations, carve-outs and differentiated industrial firms with strong customer relationships, proprietary capabilities and defensible market positions.",
     icon: ManufacturingIcon,
   },
   {
     name: "Logistics & Mobility",
     description:
-      "We invest across logistics, transportation and mobility, with a focus on businesses positioned within increasingly complex supply chains and transportation networks. Opportunities include distribution, fleet and mobility platforms, automotive-related assets and technology-enabled logistics businesses where consolidation, operational improvement and digitisation can drive value creation.",
+      "We invest across logistics, transportation and mobility, with a focus on businesses positioned within increasingly complex supply chains and transportation networks. Opportunities include distribution, fleet and mobility firms, automotive-related assets and technology-enabled logistics businesses where consolidation, operational improvement and digitisation can drive value creation.",
     icon: MobilityIcon,
   },
   {
     name: "Energy",
     description:
-      "Our energy focus spans conventional and emerging energy, infrastructure and enabling technologies. We evaluate cash-generating assets, energy services, power and infrastructure platforms, renewables and technologies supporting the evolution of the global energy system, across acquisitions, growth investments and special situations.",
+      "Our energy focus spans conventional and emerging energy, infrastructure and enabling technologies. We evaluate cash-generating assets, energy services, power and infrastructure firms, renewables and technologies supporting the evolution of the global energy system, across acquisitions, growth investments and special situations.",
     icon: EnergyIcon,
   },
   {
     name: "Sports & Sportstech",
     description:
-      "We target opportunities across the global sports ecosystem, from franchises and clubs to stadiums, venues, sports-linked real estate, media rights, commercial platforms and sports technology. Our activity combines buy-side mandates with proprietary and selectively marketed deal flow, focusing on situations where ownership, infrastructure and commercial monetisation can create long-term value.",
+      "We target opportunities across the global sports ecosystem, from franchises and clubs to stadiums, venues, sports-linked real estate, media rights, commercial firms and sports technology. Our activity combines buy-side mandates with proprietary and selectively marketed deal flow, focusing on situations where ownership, infrastructure and commercial monetisation can create long-term value.",
     icon: SportsIcon,
   },
   {
     name: "Artificial Intelligence (AI)",
     description:
-      "We focus on commercially proven AI businesses where technology translates into measurable enterprise value. We target proprietary platforms, vertical AI applications and AI-enabled businesses with differentiated technology, strong customer adoption, defensible IP and scalable economics, across growth investments, control acquisitions and strategic transactions.",
+      "We focus on commercially proven AI businesses where technology translates into measurable enterprise value. We target AI firms with proprietary technology, vertical AI applications and AI-enabled businesses with differentiated technology, strong customer adoption, defensible IP and scalable economics, across growth investments, control acquisitions and strategic transactions.",
     icon: AiIcon,
   },
   {
     name: "Data Centres & Technology",
     description:
-      "We focus on the digital infrastructure and technology businesses underpinning the growth of cloud computing, AI and increasingly data-intensive economies. Our opportunity set spans data centres, compute and connectivity infrastructure, hosting and managed services, enterprise technology platforms and mission-critical software, with particular interest in assets benefiting from structural demand growth, high barriers to entry and recurring or contracted revenues.",
+      "We focus on the digital infrastructure and technology businesses underpinning the growth of cloud computing, AI and increasingly data-intensive economies. Our opportunity set spans data centres, compute and connectivity infrastructure, hosting and managed services, enterprise technology firms and mission-critical software, with particular interest in assets benefiting from structural demand growth, high barriers to entry and recurring or contracted revenues.",
     icon: DataIcon,
   },
 ];

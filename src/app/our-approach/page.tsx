@@ -33,7 +33,7 @@ const principles = [
     n: "04",
     title: "Aligned execution",
     body:
-      "We work to align investors, owners, advisers and operating partners around outcomes that can endure beyond the transaction itself.",
+      "We work to align investors, owners and operating partners around outcomes that can endure beyond the transaction itself.",
   },
 ];
 

@@ -24,7 +24,7 @@ export default function ManagingPartnersSection() {
               Managing Partners
             </h2>
             <p className="mt-6 max-w-2xl font-sans text-lg leading-relaxed text-charcoal/70">
-              Complementary experience across investing, operations, advisory
+              Complementary experience across investing, operations
               and global private markets.
             </p>
           </div>

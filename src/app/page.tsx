@@ -8,9 +8,9 @@ import TargetSectors from "@/components/TargetSectors";
 import { ButtonLink, Eyebrow, GoldRule, PeakIcon, PeakMotif } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Truvon Capital | Global Private Markets Platform",
+  title: "Truvon Capital | Global Private Markets Firm",
   description:
-    "Truvon Capital is a global private markets platform designed to capitalize on today's multi-dimensional, rapidly evolving investment landscape.",
+    "Truvon Capital is a global private markets firm designed to capitalize on today's multi-dimensional, rapidly evolving investment landscape.",
   alternates: { canonical: "/" },
 };
 
@@ -18,7 +18,7 @@ const teasers = [
   {
     n: "01",
     eyebrow: "What we do",
-    title: "A trusted platform for private market opportunities",
+    title: "A trusted firm for private market opportunities",
     body:
       "We operate at the intersection of capital, opportunity and execution — moving with purpose from interest to action.",
     href: "/what-we-do",
@@ -48,7 +48,7 @@ export default function HomePage() {
     <>
       <Masthead
         size="hero"
-        eyebrow="Global Private Markets Platform"
+        eyebrow="Global Private Markets Firm"
         titleLines={[
           <>
             Elevating <em className="font-medium italic">trust</em>.
@@ -59,7 +59,7 @@ export default function HomePage() {
         ]}
         intro={
           <p>
-            Truvon Capital is a global private markets platform designed to
+            Truvon Capital is a global private markets firm designed to
             capitalize on today&rsquo;s multi-dimensional, rapidly evolving
             investment landscape.
           </p>
@@ -121,7 +121,7 @@ export default function HomePage() {
                 delay={140}
                 className="mt-9 max-w-2xl font-sans text-lg leading-relaxed text-charcoal/75"
               >
-                We are building a global investment platform where the right
+                We are building a global investment firm where the right
                 capital, relationships and expertise come together to navigate
                 complex private equity and M&amp;A opportunities with clarity and
                 confidence.
@@ -202,7 +202,7 @@ export default function HomePage() {
               Where capital, relationships and expertise converge.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-white/70">
-              We welcome conversations with investors, business owners, advisers
+              We welcome conversations with investors, business owners
               and partners who share our standards and long-term approach.
             </p>
             <ButtonLink href="/contact" variant="ghost-light" className="mt-11">

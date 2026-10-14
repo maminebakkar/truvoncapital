@@ -22,7 +22,7 @@ const sans = Source_Sans_3({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Truvon Capital | Global Private Markets Platform",
+    default: "Truvon Capital | Global Private Markets Firm",
     template: "%s | Truvon Capital",
   },
   description: SITE.description,
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: SITE.name,
     url: SITE.url,
-    title: "Truvon Capital | Global Private Markets Platform",
+    title: "Truvon Capital | Global Private Markets Firm",
     description: SITE.description,
     images: [
       {
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Truvon Capital | Global Private Markets Platform",
+    title: "Truvon Capital | Global Private Markets Firm",
     description: SITE.description,
     images: ["/og-image.png"],
   },

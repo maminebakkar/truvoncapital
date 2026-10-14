@@ -7,7 +7,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact us",
   description:
-    "We welcome conversations with investors, business owners, advisers and partners who share our standards and long-term approach.",
+    "We welcome conversations with investors, business owners and partners who share our standards and long-term approach.",
   alternates: { canonical: "/contact" },
 };
 
@@ -19,7 +19,7 @@ export default function ContactPage() {
         titleLines={[<>Begin a conversation</>, <>with Truvon Capital</>]}
         intro={
           <p>
-            We welcome conversations with investors, business owners, advisers and
+            We welcome conversations with investors, business owners and
             partners who share our standards and long-term approach.
           </p>
         }
