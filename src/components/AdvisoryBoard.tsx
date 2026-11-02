@@ -41,8 +41,10 @@ export default function AdvisoryBoard({ preview = false }: { preview?: boolean }
                 alt={member.image.alt}
                 width={member.image.width}
                 height={member.image.height}
-                sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 25vw"
-                className="h-auto w-full max-w-[20rem] border border-charcoal/10 sm:max-w-[22rem] lg:max-w-none"
+                sizes={preview ? "288px" : "(max-width: 640px) 320px, (max-width: 1024px) 352px, 25vw"}
+                className={preview
+                  ? "h-auto w-full max-w-[18rem] border border-charcoal/10"
+                  : "h-auto w-full max-w-[20rem] border border-charcoal/10 sm:max-w-[22rem] lg:max-w-none"}
               />
             </div>
 
