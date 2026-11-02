@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Masthead from "@/components/Masthead";
 import ManagingPartnersSection from "@/components/ManagingPartnersSection";
+import AdvisoryBoard from "@/components/AdvisoryBoard";
 import Reveal from "@/components/Reveal";
 import TruvonArrow from "@/components/TruvonArrow";
 import { ButtonLink, Eyebrow, GoldRule } from "@/components/ui";
@@ -100,6 +101,7 @@ export default function AboutUsPage() {
       </section>
 
       <ManagingPartnersSection />
+      <AdvisoryBoard />
 
       <section className="relative overflow-hidden bg-primary">
         <div

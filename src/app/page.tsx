@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Masthead from "@/components/Masthead";
 import ManagingPartnersPreview from "@/components/ManagingPartnersPreview";
+import AdvisoryBoard from "@/components/AdvisoryBoard";
 import Reveal from "@/components/Reveal";
 import TargetSectors from "@/components/TargetSectors";
 import { ButtonLink, Eyebrow, GoldRule, PeakIcon, PeakMotif } from "@/components/ui";
@@ -184,6 +185,7 @@ export default function HomePage() {
       <TargetSectors />
 
       <ManagingPartnersPreview />
+      <AdvisoryBoard preview />
 
       {/* Closing CTA */}
       <section className="relative overflow-hidden bg-primary">
